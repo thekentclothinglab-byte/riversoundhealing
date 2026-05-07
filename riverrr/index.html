@@ -192,7 +192,10 @@
     border-radius: 50%;
     background: radial-gradient(ellipse, rgba(124,92,191,0.13) 0%, rgba(78,172,172,0.07) 45%, transparent 70%);
     animation: breathe 6s ease-in-out infinite;
-    pointer-events: none;
+    animation-play-state: paused;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
     filter: blur(3px);
     will-change: transform;
   }
@@ -204,14 +207,57 @@
     border-radius: 50%;
     background: radial-gradient(ellipse, rgba(212,168,67,0.11) 0%, rgba(232,165,201,0.08) 50%, transparent 72%);
     animation: breathe 4.5s ease-in-out infinite reverse;
-    pointer-events: none;
+    animation-play-state: paused;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
     filter: blur(2px);
     will-change: transform;
+  }
+
+  /* Running state — toggled by JS on tap/click */
+  .hero-aura.breathing-active,
+  .hero-aura2.breathing-active {
+    animation-play-state: running;
   }
 
   @keyframes breathe {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
     50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+
+  /* Tap-to-breathe hint — fades out once activated */
+  .aura-hint {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, calc(-50% + 200px));
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+    white-space: nowrap;
+    z-index: 2;
+  }
+  .aura-hint.hidden { opacity: 0; }
+
+  /* Ripple burst on tap */
+  @keyframes aura-ripple {
+    0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
+  }
+  .aura-ripple {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,168,67,0.5);
+    pointer-events: none;
+    animation: aura-ripple 0.8s ease-out forwards;
   }
 
   .hero-eyebrow {
@@ -1542,7 +1588,11 @@
   /* Particle canvas — disable on low-power mobile */
   @media (max-width: 480px) {
     #grain-canvas { display: none; }
-    .hero-aura, .hero-aura2 { display: none; }
+    /* Keep auras visible & tappable on small phones — just scale them down */
+    .hero-aura  { width: 320px; height: 320px; }
+    .hero-aura2 { width: 200px; height: 200px; }
+    .aura-hint  { transform: translate(-50%, calc(-50% + 120px)); }
+    .aura-ripple { width: 200px; height: 200px; }
   }
 
   /* Extra small phone adjustments */
@@ -1598,8 +1648,9 @@ html, body, #main-site { width: 100%; max-width: 100%; overflow-x: hidden; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-aura hero-parallax-slow"></div>
-  <div class="hero-aura2 hero-parallax-mid"></div>
+  <div class="hero-aura hero-parallax-slow" id="hero-aura" role="button" aria-label="Tap to start breathing animation" tabindex="0"></div>
+  <div class="hero-aura2 hero-parallax-mid" id="hero-aura2"></div>
+  <span class="aura-hint" id="aura-hint" aria-hidden="true">✦ tap to breathe ✦</span>
   <span class="hero-eyebrow hero-parallax-fast">✦ Welcome to Your Sanctuary ✦</span>
   <h1 class="hero-title hero-parallax-mid">River Sound and Healing</h1>
   <div class="hero-subtitle-word hero-parallax-mid">Sound &amp; Healing</div>
@@ -3435,6 +3486,49 @@ window.addEventListener('load', function() { (function() {
 
   drawBreath();
 })(); }); // end load
+
+// ── HERO AURA TOUCH INTERACTION ──────────────
+// Tap/click the breathing orb to start the animation on mobile & desktop.
+(function() {
+  var aura  = document.getElementById('hero-aura');
+  var aura2 = document.getElementById('hero-aura2');
+  var hint  = document.getElementById('aura-hint');
+  if (!aura || !aura2) return;
+
+  var active = false;
+
+  function spawnRipple() {
+    var hero = aura.parentElement;
+    if (!hero) return;
+    var r = document.createElement('div');
+    r.className = 'aura-ripple';
+    hero.appendChild(r);
+    // Remove after animation completes
+    r.addEventListener('animationend', function() { r.parentNode && r.parentNode.removeChild(r); });
+  }
+
+  function startBreathing(e) {
+    // Prevent ghost click on touch devices
+    if (e && e.type === 'touchstart') e.preventDefault();
+    if (active) return; // already running — do nothing on repeat taps
+    active = true;
+    aura.classList.add('breathing-active');
+    aura2.classList.add('breathing-active');
+    if (hint) hint.classList.add('hidden');
+    spawnRipple();
+  }
+
+  // Touch (no 300 ms delay) and click (desktop / keyboard)
+  aura.addEventListener('touchstart', startBreathing, { passive: false });
+  aura.addEventListener('click',      startBreathing);
+  aura2.addEventListener('touchstart', startBreathing, { passive: false });
+  aura2.addEventListener('click',      startBreathing);
+
+  // Keyboard accessibility — Enter / Space on the focusable aura div
+  aura.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); startBreathing(e); }
+  });
+})();
 
 // ── PWA SERVICE WORKER ───────────────────────
 // Registers sw.js for offline support & "Add to Home Screen"
