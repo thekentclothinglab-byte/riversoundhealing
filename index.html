@@ -1,0 +1,3425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="River Sound">
+<meta name="theme-color" content="#07040f">
+<meta name="description" content="Sound healing, crystal singing bowls, and sacred ceremonies in a beautiful healing sanctuary. Book a sound bath, private session, or event with River Sound and Healing.">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="River Sound and Healing">
+<meta property="og:description" content="Let the ancient frequencies of crystal singing bowls dissolve what no longer serves you. Book your sound healing journey today.">
+<meta property="og:image" content="https://riversoundhealing.com/og-image.jpg">
+<meta property="og:url" content="https://riversoundhealing.com">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Favicon (inline SVG as data URI — no extra file needed) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2307040f'/><text y='.85em' font-size='80' x='10'>🌸</text></svg>">
+
+<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<title>River Sound and Healing | Sound & Healing</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #d4a843;
+    --gold-light: #f0cF7a;
+    --rose: #e8a5c9;
+    --rose-deep: #c96fa0;
+    --teal: #7ecebe;
+    --teal-deep: #4aadad;
+    --violet: #b39ddb;
+    --violet-deep: #7c5cbf;
+    --indigo: #6c5ce7;
+    --cyan: #5ef0e8;
+    --amber: #ffb347;
+    --lime: #a8ff78;
+    --magenta: #ff6ec7;
+    --sky: #89d4f5;
+    --midnight: #07040f;
+    --deep: #0e0820;
+    --mid: #1a1030;
+    --surface: #20173a;
+    --surface2: #2a1f4a;
+    --text: #f5f0ff;
+    --text-muted: rgba(245,240,255,0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; background: var(--midnight); }
+  html, body { overscroll-behavior: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    background: var(--midnight);
+    color: var(--text);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  #main-site { position: relative; z-index: 1; isolation: isolate; }
+  section, nav, footer, .social-section { position: relative; z-index: 1; }
+  #main-site { position: relative; z-index: 1; isolation: isolate; }
+  section, nav, footer, .social-section { position: relative; z-index: 1; }
+  /* Prevent dark bleed-through on iOS scroll */
+  #main-site {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    isolation: isolate;
+  }
+  section, nav, footer, .social-section {
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hide native cursor on devices with a real mouse — dragonfly takes over */
+  @media (hover: hover) {
+    *, *::before, *::after { cursor: none !important; }
+  }
+
+
+
+
+  /* Particle Canvas */
+  #particle-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 1.2rem 3rem;
+    padding-top: calc(1.2rem + env(safe-area-inset-top));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(7,4,15,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(212,168,67,0.5);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  .nav-links a:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 15px rgba(212,168,67,0.6);
+  }
+  .nav-book {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 0.6rem 1.8rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(212,168,67,0.4);
+    transition: box-shadow 0.3s, transform 0.2s;
+  }
+  .nav-book:hover {
+    box-shadow: 0 0 45px rgba(212,168,67,0.7), 0 0 80px rgba(212,168,67,0.3);
+    transform: scale(1.04);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 7rem;
+    padding-top: calc(7rem + env(safe-area-inset-top));
+    z-index: 1;
+    overflow: visible;
+  }
+  @media (max-width: 768px) {
+    .hero {
+      padding: 5rem 1.5rem 5rem;
+      padding-top: calc(5rem + env(safe-area-inset-top));
+      justify-content: flex-start;
+      padding-top: calc(6.5rem + env(safe-area-inset-top));
+    }
+  }
+
+  .hero-aura {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px; height: 750px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(124,92,191,0.13) 0%, rgba(78,172,172,0.07) 45%, transparent 70%);
+    animation: breathe 6s ease-in-out infinite;
+    pointer-events: none;
+    filter: blur(3px);
+  }
+  .hero-aura2 {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(212,168,67,0.11) 0%, rgba(232,165,201,0.08) 50%, transparent 72%);
+    animation: breathe 4.5s ease-in-out infinite reverse;
+    pointer-events: none;
+    filter: blur(2px);
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--cyan) 25%, var(--rose) 50%, var(--violet) 75%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.3em;
+    filter: drop-shadow(0 0 30px rgba(212,168,67,0.3));
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-subtitle-word {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--rose);
+    text-shadow: 0 0 30px rgba(232,165,201,0.5);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 0 40px rgba(212,168,67,0.45), 0 8px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 60px rgba(212,168,67,0.7), 0 0 120px rgba(212,168,67,0.3), 0 8px 30px rgba(0,0,0,0.3);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  .btn-ghost {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(232,165,201,0.4);
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(232,165,201,0.1), inset 0 0 20px rgba(232,165,201,0.05);
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(232,165,201,0.8);
+    box-shadow: 0 0 40px rgba(232,165,201,0.3), inset 0 0 30px rgba(232,165,201,0.1);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: max(2rem, env(safe-area-inset-bottom) + 1.5rem);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .btn-ghost-teal {
+    color: var(--teal);
+    border-color: rgba(126,206,190,0.4);
+    box-shadow: 0 0 20px rgba(126,206,190,0.1), inset 0 0 20px rgba(126,206,190,0.05);
+  }
+  .btn-ghost-teal:hover {
+    border-color: rgba(126,206,190,0.8);
+    box-shadow: 0 0 40px rgba(126,206,190,0.3), inset 0 0 30px rgba(126,206,190,0.1);
+    color: var(--teal);
+  }
+
+  .hero-explore-link {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.3s forwards;
+    margin-top: 1.8rem;
+    transition: color 0.3s;
+    display: inline-block;
+  }
+  .hero-explore-link:hover { color: var(--gold); }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+    margin: 0 auto;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
+    50%       { opacity: 1;   transform: scaleY(1); }
+  }
+  @media (max-width: 768px) {
+    .hero-scroll {
+      bottom: max(1.5rem, env(safe-area-inset-bottom) + 1rem);
+    }
+    .scroll-line { height: 30px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section base */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--rose) 50%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Divider */
+
+  /* About */
+  .about-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(124,92,191,0.06) 50%, transparent 100%);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .about-text p strong {
+    color: var(--rose);
+    font-weight: 400;
+  }
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .about-card {
+    background: linear-gradient(135deg, rgba(42,31,74,0.8) 0%, rgba(26,16,48,0.6) 100%);
+    border: 1px solid rgba(212,168,67,0.15);
+    border-radius: 16px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0.5;
+  }
+  .about-card:hover {
+    border-color: rgba(212,168,67,0.4);
+    box-shadow: 0 0 40px rgba(212,168,67,0.1), 0 20px 40px rgba(0,0,0,0.3);
+  }
+  .about-card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(212,168,67,0.5));
+  }
+  .about-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .about-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* Interactive Bowls */
+  .bowls-section {
+    text-align: center;
+    background: radial-gradient(ellipse at center, rgba(78,172,172,0.06) 0%, transparent 70%);
+  }
+  .bowls-section .section-inner { padding-bottom: 3rem; }
+  .bowls-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-muted);
+    max-width: 550px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.8;
+  }
+
+  #bowl-stage {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  #bowl-stage svg { display: block; overflow: visible; max-width: 100%; }
+
+  .bowl-hint {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Ripple on click */
+  .ripple {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: rippleOut 0.8s ease-out forwards;
+    z-index: 9998;
+  }
+  @keyframes rippleOut {
+    from { transform: translate(-50%,-50%) scale(0); opacity: 0.7; }
+    to { transform: translate(-50%,-50%) scale(3); opacity: 0; }
+  }
+
+  /* Services / Prices */
+  .services-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(108,92,231,0.06) 30%, rgba(232,165,201,0.04) 70%, transparent 100%);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .service-card {
+    background: linear-gradient(145deg, rgba(42,31,74,0.7) 0%, rgba(14,8,32,0.8) 100%);
+    border: 1px solid rgba(179,157,219,0.2);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at 50% 0%, rgba(212,168,67,0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .service-card:hover::after { opacity: 1; }
+  .service-card:hover {
+    border-color: rgba(212,168,67,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 0 50px rgba(212,168,67,0.12), 0 30px 60px rgba(0,0,0,0.4);
+  }
+  .service-card.featured {
+    border-color: rgba(212,168,67,0.5);
+    background: linear-gradient(145deg, rgba(58,42,100,0.9) 0%, rgba(26,16,48,0.9) 100%);
+  }
+  .service-card.featured::before {
+    content: '✦ Most Popular ✦';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--midnight);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    padding: 0.35rem 1.5rem;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .service-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .price-currency {
+    font-size: 1.1rem;
+    color: var(--gold);
+  }
+  .price-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  .service-features li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .service-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .btn-service {
+    display: block;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 0.73rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+  }
+  .btn-service-gold {
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    box-shadow: 0 0 25px rgba(212,168,67,0.3);
+  }
+  .btn-service-gold:hover {
+    box-shadow: 0 0 50px rgba(212,168,67,0.6);
+    transform: scale(1.02);
+  }
+  .btn-service-outline {
+    color: var(--rose);
+    border: 1px solid rgba(232,165,201,0.4);
+    background: transparent;
+  }
+  .btn-service-outline:hover {
+    border-color: var(--rose);
+    box-shadow: 0 0 25px rgba(232,165,201,0.2);
+  }
+
+  /* Events */
+  .events-section {
+    background: radial-gradient(ellipse at 80% 50%, rgba(212,168,67,0.05) 0%, transparent 60%);
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .event-card {
+    background: linear-gradient(145deg, rgba(32,23,58,0.9) 0%, rgba(14,8,32,0.8) 100%);
+    border: 1px solid rgba(126,206,190,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+  .event-card:hover {
+    border-color: rgba(126,206,190,0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(126,206,190,0.1), 0 25px 50px rgba(0,0,0,0.3);
+  }
+
+  .event-header {
+    padding: 1.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+
+  .event-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .tag-teal { background: rgba(126,206,190,0.15); color: var(--teal); border: 1px solid rgba(126,206,190,0.3); }
+  .tag-rose { background: rgba(232,165,201,0.15); color: var(--rose); border: 1px solid rgba(232,165,201,0.3); }
+  .tag-gold { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+  .tag-violet { background: rgba(179,157,219,0.15); color: var(--violet); border: 1px solid rgba(179,157,219,0.3); }
+
+  .event-header h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+
+  .event-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .event-body {
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .event-meta-icon { font-size: 0.9rem; }
+
+  .event-price-block { text-align: right; }
+  .event-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--teal);
+  }
+  .event-price-note {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Booking */
+  .booking-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(124,92,191,0.08) 50%, transparent 100%);
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .booking-info h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .booking-info p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+
+  .booking-contact-block {
+    background: rgba(42,31,74,0.5);
+    border: 1px solid rgba(212,168,67,0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .booking-contact-block h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+  }
+  .contact-link:hover { color: var(--rose); }
+  .contact-icon { font-size: 1rem; }
+
+  .booking-form {
+    background: linear-gradient(145deg, rgba(42,31,74,0.7) 0%, rgba(14,8,32,0.8) 100%);
+    border: 1px solid rgba(179,157,219,0.2);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .booking-form::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--violet), var(--teal), transparent);
+    opacity: 0.5;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(179,157,219,0.2);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px; /* prevents iOS auto-zoom */
+    font-weight: 300;
+    padding: 0.9rem 1.2rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: auto;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(212,168,67,0.6);
+    box-shadow: 0 0 20px rgba(212,168,67,0.1);
+  }
+  .form-group select option { background: var(--deep); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-submit {
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border: none;
+    padding: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(212,168,67,0.35);
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover {
+    box-shadow: 0 0 60px rgba(212,168,67,0.6), 0 0 120px rgba(212,168,67,0.2);
+    transform: translateY(-2px);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+  .form-success h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .form-success p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    text-align: center;
+    background: radial-gradient(ellipse at 20% 50%, rgba(232,165,201,0.05) 0%, transparent 60%);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+    text-align: left;
+  }
+
+  .testimonial-card {
+    background: rgba(32,23,58,0.6);
+    border: 1px solid rgba(179,157,219,0.15);
+    border-radius: 20px;
+    padding: 2.2rem;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--violet);
+    opacity: 0.15;
+    line-height: 1;
+  }
+  .testimonial-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .testimonial-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.75rem;
+    color: var(--midnight);
+  }
+  .av-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+  .av-rose { background: linear-gradient(135deg, var(--rose-deep), var(--rose)); }
+  .av-teal { background: linear-gradient(135deg, var(--teal-deep), var(--teal)); }
+  .av-violet { background: linear-gradient(135deg, var(--violet-deep), var(--violet)); }
+
+  .testimonial-author-info strong {
+    font-size: 0.85rem;
+    color: var(--text);
+    display: block;
+  }
+  .testimonial-author-info span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  /* Social / Footer */
+  .social-section {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(7,4,15,0.9) 100%);
+  }
+
+  .social-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+  }
+  .social-link:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .social-link svg {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+  }
+
+  .social-link span {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+
+  .sl-whatsapp { border-color: rgba(37,211,102,0.3); color: #25d366; }
+  .sl-whatsapp:hover { border-color: rgba(37,211,102,0.7); box-shadow: 0 0 25px rgba(37,211,102,0.2); }
+  .sl-facebook { border-color: rgba(24,119,242,0.3); color: #1877f2; }
+  .sl-facebook:hover { border-color: rgba(24,119,242,0.7); box-shadow: 0 0 25px rgba(24,119,242,0.2); }
+  .sl-instagram { border-color: rgba(228,64,95,0.3); color: #e4405f; }
+  .sl-instagram:hover { border-color: rgba(228,64,95,0.7); box-shadow: 0 0 25px rgba(228,64,95,0.2); }
+  .sl-tiktok { border-color: rgba(105,201,208,0.3); color: #69c9d0; }
+  .sl-tiktok:hover { border-color: rgba(105,201,208,0.7); box-shadow: 0 0 25px rgba(105,201,208,0.2); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  footer p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.15em;
+  }
+  .footer-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem;
+    color: rgba(212,168,67,0.4);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2em;
+    display: block;
+  }
+
+  /* Floating orbs background */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatOrb linear infinite;
+  }
+  @keyframes floatOrb {
+    0% { transform: translateY(110%) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100px) scale(1); opacity: 0; }
+  }
+
+  /* Glow ring animation on bowls */
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.3; r: 55; }
+    50% { opacity: 0.7; r: 65; }
+  }
+
+  /* Magic Canvas */
+  #magic-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    touch-action: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+
+  /* Rich ambient orbs - soft, few, beautiful */
+  .orb-pulse {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(80px);
+    animation: orbPulse ease-in-out infinite alternate;
+    mix-blend-mode: screen;
+  }
+  @keyframes orbPulse {
+    from { transform: scale(1) translate(0,0); opacity: 0.5; }
+    to   { transform: scale(1.18) translate(1.5%,2%); opacity: 0.85; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.revealed { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.10s; }
+  .reveal-delay-2 { transition-delay: 0.20s; }
+  .reveal-delay-3 { transition-delay: 0.32s; }
+  .reveal-delay-4 { transition-delay: 0.46s; }
+
+  /* ── BREATHING WIDGET ── */
+  .breath-section {
+    text-align: center;
+    background: radial-gradient(ellipse at center, rgba(124,92,191,0.07) 0%, transparent 65%);
+    position: relative; z-index: 1;
+  }
+  #breath-wrap {
+    position: relative;
+    width: 280px; height: 280px;
+    margin: 3rem auto 0.5rem;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+    z-index: 2;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  @media (max-width: 768px) {
+    #breath-wrap { width: 240px; height: 240px; }
+  }
+  #breath-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100% !important; height: 100% !important;
+    touch-action: manipulation;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    cursor: pointer;
+    pointer-events: none;
+  }
+  #breath-center {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    pointer-events: none;
+  }
+  #breath-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.05rem;
+    color: var(--text-muted); letter-spacing: 0.06em;
+    transition: opacity 0.5s;
+  }
+  #breath-phase {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.68rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    min-height: 1.1em; transition: opacity 0.5s;
+  }
+  #breath-btn {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--rose); background: transparent;
+    border: 1px solid rgba(232,165,201,0.35); border-radius: 50px;
+    padding: 0.7rem 2rem; cursor: pointer;
+    transition: all 0.3s; margin-top: 1.8rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #breath-btn:hover { border-color: rgba(232,165,201,0.75); box-shadow: 0 0 25px rgba(232,165,201,0.2); }
+
+  /* ── GRAIN TEXTURE ── */
+  #grain-canvas {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.032;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── DRAGONFLY CURSOR — see @media (hover) rules on body ── */
+
+  /* ── CARD SHIMMER (mouse-following light) ── */
+  .service-card, .event-card, .about-card, .testimonial-card {
+    overflow: hidden;
+  }
+  .card-shimmer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 180px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.06) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+  .service-card:hover .card-shimmer,
+  .event-card:hover   .card-shimmer,
+  .about-card:hover   .card-shimmer { opacity: 1; }
+
+  /* ── NAV SCROLL TINT ── */
+  nav.scrolled {
+    background: linear-gradient(to bottom, rgba(7,4,15,0.98) 0%, rgba(12,6,20,0.95) 100%);
+    border-bottom: 1px solid rgba(212,168,67,0.08);
+  }
+
+
+  /* ── PREMIUM FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,168,67,0.35), rgba(232,165,201,0.25), transparent);
+  }
+  footer::after {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 160px;
+    background: radial-gradient(ellipse, rgba(124,92,191,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .footer-lotus {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    animation: breathe 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(212,168,67,0.4));
+  }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(245,240,255,0.35);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ── AURA DIVIDER ── */
+  .aura-divider {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    margin: 0;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .aura-divider canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: block;
+  }
+
+  /* ── TESTIMONIAL CARD UPGRADE ── */
+  .testimonial-card {
+    position: relative;
+    transition: border-color 0.4s, transform 0.4s;
+  }
+  .testimonial-card:hover {
+    border-color: rgba(179,157,219,0.35);
+    transform: translateY(-4px);
+  }
+
+  /* ── BUTTON PREMIUM ── */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 40%; height: 200%;
+    background: rgba(255,255,255,0.18);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+  .btn-primary:hover::after { left: 120%; }
+
+  /* Responsive + iOS */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0.9rem 1.2rem;
+      padding-top: calc(0.9rem + env(safe-area-inset-top));
+    }
+    .nav-links { display: none; }
+    /* Hide Book Session button text on very small screens, keep hamburger prominent */
+    .nav-book { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .section-inner { padding: 3.5rem 1.2rem; }
+    #bowl-stage {
+      height: auto !important;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    #bowl-stage svg {
+      width: 100% !important;
+      height: auto !important;
+    }
+    .services-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .social-links { gap: 0.8rem; }
+    .social-link { padding: 0.85rem 1.2rem; font-size: 0.8rem; min-height: 44px; }
+    footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    .hero-buttons { flex-direction: column; align-items: center; gap: 1rem; }
+    .btn-primary, .btn-ghost { width: 100%; max-width: 300px; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; }
+    .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+    .hero-title { font-size: clamp(2.2rem, 9vw, 4rem); }
+    .booking-form { padding: 2rem 1.2rem; }
+    .service-card { padding: 2rem 1.4rem; }
+    .event-card .event-body { flex-direction: column; align-items: flex-start; }
+    .event-price-block { text-align: left; }
+    /* Hamburger menu */
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      z-index: 1001;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: flex !important;
+      position: fixed;
+      inset: 0;
+      background: rgba(7,4,15,0.98);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      padding: 1.2rem 2rem;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-menu a:active { color: var(--gold); }
+    .mobile-menu-book {
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--midnight) !important;
+      border-radius: 50px;
+      padding: 1rem 2.5rem !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.2em !important;
+      width: auto !important;
+      min-width: 200px;
+      box-shadow: 0 0 30px rgba(212,168,67,0.4);
+    }
+    /* Service cards full width */
+    .service-card.featured::before { font-size: 0.55rem; }
+    /* Bigger touch targets on form elements */
+    .form-group input, .form-group select, .form-group textarea { min-height: 48px; }
+    .form-submit { min-height: 54px; font-size: 0.82rem; }
+    /* Better about cards on mobile */
+    .about-card { padding: 1.4rem 1.2rem; }
+    /* Better testimonials */
+    .testimonial-card { padding: 1.8rem 1.4rem; }
+  }
+
+  /* Tap active states for touch (replace hover) */
+  @media (hover: none) {
+    .service-card:active { border-color: rgba(212,168,67,0.4); transform: translateY(-3px); }
+    .event-card:active { border-color: rgba(126,206,190,0.5); }
+    .about-card:active { border-color: rgba(212,168,67,0.4); }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-ghost:active { border-color: rgba(232,165,201,0.8); }
+    .social-link:active { background: rgba(255,255,255,0.06); }
+    .nav-book:active { transform: scale(1.02); }
+  }
+
+  /* Hamburger X animation */
+  .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .nav-hamburger span { transition: all 0.3s ease; }
+
+  /* iOS momentum scroll fix */
+  html { -webkit-overflow-scrolling: touch; }
+
+  /* Prevent text selection on UI elements */
+  nav, .mobile-menu, .hero-buttons, .service-card h3,
+  .event-tag, .btn-primary, .btn-ghost, .btn-service { user-select: none; -webkit-user-select: none; }
+
+  /* Better focus states for accessibility */
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* Ensure nav logo doesn't wrap on small screens */
+  .nav-logo { white-space: nowrap; font-size: clamp(0.75rem, 2.5vw, 1.1rem); }
+
+
+  /* ── iOS PREMIUM MOBILE FIXES ── */
+  @media (max-width: 768px) {
+
+    /* Hero — title prominent, centred, never cut off */
+    .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.3em; margin-bottom: 1rem; }
+    .hero-title   { font-size: clamp(2.4rem, 10vw, 3.8rem); line-height: 1.08; margin-bottom: 0.25em; }
+    .hero-subtitle-word { font-size: clamp(0.9rem, 3.5vw, 1.3rem); letter-spacing: 0.25em; margin-bottom: 1.5rem; }
+    .hero-tagline { font-size: clamp(1rem, 3.5vw, 1.2rem); margin-bottom: 2rem; }
+
+    /* Bowls — full width, auto height, never clips */
+    .bowls-section .section-inner { padding-bottom: 1.5rem; }
+    #bowl-stage { width: 100% !important; margin: 0 auto; }
+    .bowl-hint { font-size: 0.65rem; margin-top: 1.5rem; }
+
+    /* Aura divider canvas — reduce height on mobile */
+    .aura-divider { height: 44px; }
+
+    /* Breathing widget */
+    .breath-section .section-inner { padding-top: 3rem; padding-bottom: 3rem; }
+    #breath-wrap { margin-top: 2rem; }
+    #breath-btn {
+      min-height: 48px;
+      padding: 0.9rem 2.5rem;
+      font-size: 0.75rem;
+    }
+
+    /* Section titles — bigger punch on mobile */
+    .section-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+    .section-label { font-size: 0.62rem; }
+
+    /* Service cards — more breathing room */
+    .price-amount { font-size: 2rem; }
+
+    /* Events grid */
+    .event-price { font-size: 1.6rem; }
+  }
+
+  /* Particle canvas — disable on low-power mobile */
+  @media (max-width: 480px) {
+    #grain-canvas { display: none; }
+    .hero-aura, .hero-aura2 { display: none; }
+  }
+
+  /* Extra small phone adjustments */
+  @media (max-width: 390px) {
+    .section-inner { padding: 3rem 1rem; }
+    .hero { padding: 6rem 1rem 5rem; }
+    .testimonial-card p { font-size: 1rem; }
+    .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
+  }
+</style>
+</head>
+<body>
+<!-- Dragonfly cursor canvas — desktop only, hidden on touch devices via JS -->
+<canvas id="df-cursor" width="80" height="80" style="position:fixed;width:40px;height:40px;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);top:-100px;left:-100px;display:none;"></canvas>
+
+<!-- MAIN SITE -->
+<div id="main-site">
+<canvas id="magic-canvas"></canvas>
+<canvas id="grain-canvas"></canvas>
+
+<style>
+/* Hamburger — hidden on desktop */
+.nav-hamburger { display: none; }
+.mobile-menu   { display: none; }
+html, body, #main-site { width: 100%; max-width: 100%; overflow-x: hidden; }
+</style>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">River Sound and Healing</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#bowls">Experience</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Book Session</a>
+  <div class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button onclick="closeMobileMenu()" style="position:absolute;top:calc(1.2rem + env(safe-area-inset-top));right:1.5rem;background:none;border:none;color:var(--text-muted);font-size:1.6rem;line-height:1;padding:8px;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;">✕</button>
+  <a href="#about"    onclick="closeMobileMenu()">About</a>
+  <a href="#bowls"    onclick="closeMobileMenu()">Experience</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#events"   onclick="closeMobileMenu()">Events</a>
+  <a href="#booking"  onclick="closeMobileMenu()" class="mobile-menu-book">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-aura hero-parallax-slow"></div>
+  <div class="hero-aura2 hero-parallax-mid"></div>
+  <span class="hero-eyebrow hero-parallax-fast">✦ Welcome to Your Sanctuary ✦</span>
+  <h1 class="hero-title hero-parallax-mid">River Sound and Healing</h1>
+  <div class="hero-subtitle-word hero-parallax-mid">Sound &amp; Healing</div>
+  <p class="hero-tagline hero-parallax-fast">
+    Step into the vibration of pure healing. Let the ancient frequencies of crystal singing bowls dissolve what no longer serves you, and carry your soul home.
+  </p>
+  <div class="hero-buttons hero-parallax-fast">
+    <a href="#booking" class="btn-primary">Begin Your Journey</a>
+    <a href="#bowls" class="btn-ghost">Feel the Sound</a>
+    <a href="#breath" class="btn-ghost btn-ghost-teal">Take a Breath</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Descend</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-label reveal">✦ Our Purpose</span>
+        <h2 class="section-title reveal reveal-delay-1"><span class="gradient-text">Where Sound Becomes Medicine</span></h2>
+        <p>At River Sound and Healing, we believe every cell in your body remembers what it feels like to be at peace. <strong>Sound healing is not just music</strong> — it is a vibrational language that speaks directly to your nervous system, your chakras, your deepest knowing.</p>
+        <p>Our practice weaves crystal singing bowls, Tibetan bowls, gongs, and sacred instruments into immersive journeys that guide you beyond the noise of the everyday world — into <strong>the stillness that has always been waiting for you</strong>.</p>
+        <p>Whether you seek relief from stress and anxiety, a deeper spiritual connection, or simply a place to rest and restore — <strong>you have arrived at the right moment</strong>.</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <span class="about-card-icon">🔮</span>
+          <h3>Crystal Singing Bowls</h3>
+          <p>Pure quartz crystal bowls tuned to specific chakra frequencies. Their tones penetrate deep into cellular memory, releasing old patterns and restoring natural harmony.</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">🌀</span>
+          <h3>Sacred Sound Baths</h3>
+          <p>Lie back and be immersed in layers of healing sound — gongs, bells, drums, and bowls weaving a sonic tapestry that takes you into profound states of rest and renewal.</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">✨</span>
+          <h3>Certified Practitioners</h3>
+          <p>Our therapists are fully trained and certified in sound healing modalities, with years of experience holding sacred space for transformation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- INTERACTIVE BOWLS -->
+<section class="bowls-section" id="bowls">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ Interactive Experience</span>
+    <h2 class="section-title reveal reveal-delay-1"><span class="gradient-text">Touch the Bowls</span></h2>
+    <p class="bowls-intro">Glide over each crystal bowl to awaken its healing frequency. Each note carries a different energy — feel which one calls to you.</p>
+
+    <div id="bowl-stage" style="width:100%;max-width:960px;margin:0 auto;"></div>
+    <p class="bowl-hint">✦ Glide or tap each bowl to hear its resonance ✦</p>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- BREATHING WIDGET -->
+<section class="breath-section" id="breath">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ A Moment for You</span>
+    <h2 class="section-title reveal reveal-delay-1"><span class="gradient-text">Breathe With Us</span></h2>
+    <p class="bowls-intro reveal reveal-delay-2">Before you book, before you think — just breathe. Let the sound hold you.</p>
+    <div id="breath-wrap">
+      <canvas id="breath-canvas"></canvas>
+      <div id="breath-center">
+        <div id="breath-label">Touch to begin</div>
+        <div id="breath-phase"></div>
+      </div>
+    </div>
+    <button id="breath-btn" onclick="toggleBreath()">Begin Breathing</button>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- SERVICES & PRICES -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ Services &amp; Investment</span>
+    <h2 class="section-title"><span class="gradient-text">Choose Your Healing Path</span></h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon">🎵</span>
+        <h3>Group Sound Bath</h3>
+        <p>Join our intimate community sound journeys. Lie in a circle of healing intention as pure frequencies wash through the room and through you.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">25</span>
+        </div>
+        <div class="price-label">per person · 90 minutes</div>
+        <ul class="service-features">
+          <li>Crystal &amp; Tibetan singing bowls</li>
+          <li>Gong immersion</li>
+          <li>Guided breathing &amp; meditation</li>
+          <li>Max 12 participants</li>
+          <li>Mat &amp; blanket provided</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Group Sound Bath — £25')" class="btn-service btn-service-outline">Reserve Your Space</a>
+      </div>
+
+      <div class="service-card featured">
+        <span class="service-icon">💎</span>
+        <h3>Private 1:1 Session</h3>
+        <p>A deeply personal healing journey crafted entirely for you. Your therapist will intuitively select bowls and sounds that speak to your unique energy field.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">85</span>
+        </div>
+        <div class="price-label">per session · 60 minutes</div>
+        <ul class="service-features">
+          <li>Full energy consultation</li>
+          <li>Chakra-targeted sound therapy</li>
+          <li>Crystal placement &amp; reiki blend</li>
+          <li>Personalised post-session guidance</li>
+          <li>Recording of your session available</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Private 1:1 Session — £85')" class="btn-service btn-service-gold">Book Private Session</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🌙</span>
+        <h3>Couples Harmony Session</h3>
+        <p>Share a sacred healing space with someone you love. Perfect for reconnection, intention-setting, or simply nurturing your relationship together.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">130</span>
+        </div>
+        <div class="price-label">per couple · 75 minutes</div>
+        <ul class="service-features">
+          <li>Joint intention ceremony</li>
+          <li>Dual-frequency bowl pairing</li>
+          <li>Couples breathing practice</li>
+          <li>Rose quartz crystal work</li>
+          <li>Post-session herbal tea ritual</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Couples Harmony Session — £130')" class="btn-service btn-service-outline">Book Together</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🌟</span>
+        <h3>Healing Package — 4 Sessions</h3>
+        <p>Commit to your healing journey. Four private sessions over four weeks, building a deep and lasting transformation in your energy body and nervous system.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">300</span>
+        </div>
+        <div class="price-label">4 × 60 min sessions (save £40)</div>
+        <ul class="service-features">
+          <li>4 bespoke 1:1 sessions</li>
+          <li>Progress energy mapping</li>
+          <li>Home practice audio library</li>
+          <li>WhatsApp support between sessions</li>
+          <li>Free crystal gift included</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Healing Package (4 sessions) — £300')" class="btn-service btn-service-outline">Enquire</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3>Corporate Wellbeing</h3>
+        <p>Bring the healing into the workplace. Our workplace sound bath experiences reduce stress, boost creativity, and cultivate team coherence in a beautiful way.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">350</span>
+        </div>
+        <div class="price-label">from · up to 20 people · 60 min</div>
+        <ul class="service-features">
+          <li>We come to your venue</li>
+          <li>Group sound bath experience</li>
+          <li>Wellbeing talk &amp; Q&amp;A</li>
+          <li>Bespoke packages available</li>
+          <li>Regular monthly bookings welcome</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Corporate Wellbeing — from £350')" class="btn-service btn-service-outline">Get a Quote</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🎉</span>
+        <h3>Private Events &amp; Retreats</h3>
+        <p>Hen parties, birthdays, wellness retreats, yoga studios — we create bespoke sound healing experiences for any gathering, large or intimate.</p>
+        <div class="service-price">
+          <span class="price-currency">£</span>
+          <span class="price-amount">POA</span>
+        </div>
+        <div class="price-label">bespoke pricing · get in touch</div>
+        <ul class="service-features">
+          <li>Fully tailored to your event</li>
+          <li>Any venue, any location</li>
+          <li>Sound &amp; cacao ceremony options</li>
+          <li>Full AV &amp; ambiance setup</li>
+          <li>Group meditation facilitation</li>
+        </ul>
+        <a href="#booking" onclick="selectPackage('Private Event / Retreat — POA')" class="btn-service btn-service-outline">Enquire Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- EVENTS -->
+<section class="events-section" id="events">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ Upcoming Events</span>
+    <h2 class="section-title"><span class="gradient-text">Gather in the Sound</span></h2>
+
+    <div class="events-grid">
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-teal">Full Moon</div>
+          <h3>Full Moon Sound Journey</h3>
+          <p>Surrender to the energy of the full moon in this extended 2-hour ceremonial sound bath. Release, receive, and realign under the moonlight.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">🌕</span> Monthly — Check socials</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕖</span> 7:00pm – 9:00pm</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> River Sound and Healing Studio</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 10 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£35</div>
+            <div class="event-price-note">per person</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-rose">New Moon</div>
+          <h3>New Moon Intentions &amp; Sound</h3>
+          <p>Plant seeds of intention in this intimate new moon ceremony — journaling, guided visualisation, and a closing sound bath to anchor your vision.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">🌑</span> Monthly — New Moon</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕕</span> 6:30pm – 8:30pm</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> River Sound and Healing Studio</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 8 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£30</div>
+            <div class="event-price-note">per person</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-gold">Workshop</div>
+          <h3>Introduction to Sound Healing</h3>
+          <p>Explore the science and spirituality of sound. Learn to play crystal bowls, understand chakra frequencies, and experience a mini healing session.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">📅</span> Every other Saturday</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕙</span> 10:00am – 1:00pm</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> River Sound and Healing Studio</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 6 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£55</div>
+            <div class="event-price-note">per person</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-violet">Day Retreat</div>
+          <h3>Half-Day Healing Retreat</h3>
+          <p>A nurturing half-day of sound, breathwork, meditation, gentle movement and nourishing plant-based food. A complete reset for body and soul.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">📅</span> Quarterly events</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕙</span> 9:30am – 2:30pm</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> Various venues</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 15 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£95</div>
+            <div class="event-price-note">incl. food</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-teal">Cacao Ceremony</div>
+          <h3>Cacao &amp; Sound Ceremony</h3>
+          <p>Open your heart with ceremonial cacao and journey deep through layered sound healing. A truly soul-moving experience of love and connection.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">📅</span> Monthly</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕕</span> 6:00pm – 9:00pm</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> River Sound and Healing Studio</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 10 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£45</div>
+            <div class="event-price-note">per person</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-tag tag-rose">Wellness Morning</div>
+          <h3>Sunday Sanctuary Morning</h3>
+          <p>Gentle yoga, breathwork, and a 45-minute sound bath to set your Sunday intention. Leave glowing, grounded, and ready for the week ahead.</p>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <div class="event-meta-item"><span class="event-meta-icon">📅</span> Every Sunday</div>
+            <div class="event-meta-item"><span class="event-meta-icon">🕙</span> 9:00am – 11:00am</div>
+            <div class="event-meta-item"><span class="event-meta-icon">📍</span> River Sound and Healing Studio</div>
+            <div class="event-meta-item"><span class="event-meta-icon">👥</span> Max 12 people</div>
+          </div>
+          <div class="event-price-block">
+            <div class="event-price">£22</div>
+            <div class="event-price-note">per person</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ Sacred Reflections</span>
+    <h2 class="section-title reveal reveal-delay-1"><span class="gradient-text">Words from Our Community</span></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <p>"I came in with three months of anxiety I couldn't shake. I left the sound bath feeling like I'd been rinsed clean from the inside. I sobbed, I released, I healed. I cannot recommend River Sound and Healing enough."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-rose">SR</div>
+          <div class="testimonial-author-info">
+            <strong>Sarah R.</strong>
+            <span>Private Session Client</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <p>"Our team corporate session was transformative. People who had never meditated in their lives were in tears — in the best way. The atmosphere is completely magical and the practitioner is gifted beyond words."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-teal">JM</div>
+          <div class="testimonial-author-info">
+            <strong>James M.</strong>
+            <span>Corporate Client</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <p>"The full moon sound journey was one of the most profound experiences of my life. I've been to many healing events but the energy River Sound and Healing holds is something truly extraordinary. My soul keeps calling me back."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-violet">LA</div>
+          <div class="testimonial-author-info">
+            <strong>Luna A.</strong>
+            <span>Regular Attendee</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <p>"We booked a sound bath for my hen party and every single woman cried (happy tears!). It was healing, hilarious, beautiful and unforgettable. The best hen party activity I've ever experienced."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-gold">EK</div>
+          <div class="testimonial-author-info">
+            <strong>Emma K.</strong>
+            <span>Private Event Client</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BOOKING -->
+<section class="booking-section" id="booking">
+  <div class="section-inner">
+    <span class="section-label reveal">✦ Reserve Your Space</span>
+    <h2 class="section-title reveal reveal-delay-1"><span class="gradient-text">Begin Your Healing</span></h2>
+
+    <div class="booking-grid">
+      <div class="booking-info">
+        <h2>Your journey begins with one brave step inward.</h2>
+        <p>Fill in your details and we will respond within 24 hours to confirm your booking and answer any questions. We can't wait to welcome you into our sanctuary.</p>
+        <p>All sessions are held in our beautiful, dedicated healing space — or we can come to you for private events and corporate bookings.</p>
+        <div class="booking-contact-block">
+          <h4>Reach us directly</h4>
+          <a class="contact-link" href="https://wa.me/447700000000" target="_blank">
+            <span class="contact-icon">💬</span> WhatsApp us for quick enquiries
+          </a>
+          <a class="contact-link" href="mailto:info@riversoundhealing.com">
+            <span class="contact-icon">✉️</span> info@riversoundhealing.com
+          </a>
+          <a class="contact-link" href="https://www.instagram.com/riversoundhealing" target="_blank">
+            <span class="contact-icon">📸</span> @riversoundhealing on Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div id="booking-form-inner">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first_name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last_name" placeholder="Your surname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="reply_to" placeholder="hello@youremail.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+44 0000 000000">
+          </div>
+          <div class="form-group">
+            <label>Session Type</label>
+            <select name="session_type">
+              <option value="" disabled selected>Choose your experience</option>
+              <option>Group Sound Bath — £25</option>
+              <option>Private 1:1 Session — £85</option>
+              <option>Couples Harmony Session — £130</option>
+              <option>Healing Package (4 sessions) — £300</option>
+              <option>Corporate Wellbeing — from £350</option>
+              <option>Full Moon Sound Journey — £35</option>
+              <option>New Moon Ceremony — £30</option>
+              <option>Cacao &amp; Sound Ceremony — £45</option>
+              <option>Sunday Sanctuary Morning — £22</option>
+              <option>Introduction Workshop — £55</option>
+              <option>Half-Day Retreat — £95</option>
+              <option>Private Event / Retreat — POA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date &amp; Time</label>
+            <input type="text" name="preferred_date" placeholder="e.g. Saturdays, evenings, flexible...">
+          </div>
+          <div class="form-group">
+            <label>Anything you'd like us to know?</label>
+            <textarea name="message" placeholder="Tell us what you're seeking, any health considerations, or simply say hello..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send My Booking Request ✦</button>
+        </div>
+        <div class="form-success" id="form-success">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">✨</div>
+          <h3>Your Request Has Been Received</h3>
+          <p>"The journey of a thousand miles begins beneath one's feet." <br><br>We will be in touch within 24 hours, beautiful soul. Welcome to River Sound and Healing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aura-divider"></div>
+
+<!-- SOCIAL LINKS -->
+<section class="social-section">
+  <p class="social-title">Follow our journey · Join the community</p>
+  <div class="social-links">
+    <a href="https://wa.me/447700000000" target="_blank" class="social-link sl-whatsapp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.facebook.com/riversoundhealing" target="_blank" class="social-link sl-facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <span>Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/riversoundhealing" target="_blank" class="social-link sl-instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@riversoundhealing" target="_blank" class="social-link sl-tiktok">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      <span>TikTok</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-lotus">🌸</span>
+  <span class="footer-logo">River Sound and Healing</span>
+  <span class="footer-tagline">Sound is the medicine of the future</span>
+  <p>© 2025 River Sound and Healing · All Rights Reserved · Made with love &amp; sound</p>
+</footer>
+
+<script>
+// ── MOBILE MENU ──
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const hb = document.getElementById('nav-hamburger');
+  menu.classList.toggle('open');
+  hb.classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  const hb = document.getElementById('nav-hamburger');
+  if (hb) hb.classList.remove('open');
+}
+// Close menu on outside tap
+document.addEventListener('touchstart', function(e) {
+  const menu = document.getElementById('mobile-menu');
+  const hb = document.getElementById('nav-hamburger');
+  if (menu && menu.classList.contains('open')) {
+    if (!menu.contains(e.target) && !hb.contains(e.target)) {
+      closeMobileMenu();
+    }
+  }
+}, { passive: true });
+
+// ── SHARED AUDIO CONTEXT (iOS-safe) ──────────────────
+// Create AudioContext on first user gesture anywhere on page
+// so bowls work immediately on first touch/glide — no separate unlock step needed
+const AUDIO = {
+  ctx: null,
+  get() {
+    if (!this.ctx) {
+      try { this.ctx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){}
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume().catch(()=>{});
+    }
+    return this.ctx;
+  },
+  resume() {
+    if (!this.ctx) {
+      try { this.ctx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){}
+    }
+    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume().catch(()=>{});
+  }
+};
+
+// Eagerly create + unlock on ANY first interaction — scroll, touch, click, mousemove
+// This means by the time a user glides over a bowl, audio is already live
+function _unlockAudio() {
+  AUDIO.resume();
+}
+['touchstart','touchend','mousedown','mousemove','scroll','keydown'].forEach(evt => {
+  document.addEventListener(evt, _unlockAudio, { once: true, passive: true });
+});
+
+// ════════════════════════════════════════
+
+// Custom cursor handled in premium enhancements block below
+
+// ── CANVAS ──
+const MC = document.getElementById('magic-canvas');
+const cx = MC.getContext('2d');
+let W, H;
+function resize() { W = MC.width = window.innerWidth; H = MC.height = window.innerHeight; }
+resize(); window.addEventListener('resize', resize);
+
+function now() { return performance.now() / 1000; }
+
+// ─── DEEP BREATHING AURA ORBS ─────────────────
+const ORBS = [
+  { xBase:0.14, yBase:0.22, r:380, col:[124,92,191],  breathPeriod:9,  driftPeriod:28, phase:0    },
+  { xBase:0.80, yBase:0.30, r:320, col:[126,206,190],  breathPeriod:11, driftPeriod:34, phase:2.1  },
+  { xBase:0.50, yBase:0.68, r:400, col:[232,165,201],  breathPeriod:8,  driftPeriod:40, phase:4.3  },
+  { xBase:0.75, yBase:0.80, r:300, col:[212,168,67],   breathPeriod:13, driftPeriod:32, phase:1.0  },
+  { xBase:0.22, yBase:0.60, r:350, col:[179,157,219],  breathPeriod:10, driftPeriod:38, phase:3.2  },
+];
+
+function drawOrbs(t) {
+  ORBS.forEach(o => {
+    const breath = 0.88 + Math.sin(t / o.breathPeriod * Math.PI * 2 + o.phase) * 0.12;
+    const px = (o.xBase + Math.sin(t / o.driftPeriod * Math.PI * 2 + o.phase) * 0.06) * W;
+    const py = (o.yBase + Math.cos(t / o.driftPeriod * Math.PI * 2 + o.phase * 1.3) * 0.04) * H;
+    const r  = o.r * breath;
+    const [rv,gv,bv] = o.col;
+    const g = cx.createRadialGradient(px,py,0, px,py,r);
+    g.addColorStop(0,   `rgba(${rv},${gv},${bv},0.10)`);
+    g.addColorStop(0.45,`rgba(${rv},${gv},${bv},0.055)`);
+    g.addColorStop(1,   `rgba(${rv},${gv},${bv},0)`);
+    cx.beginPath(); cx.arc(px,py,r,0,Math.PI*2);
+    cx.fillStyle = g; cx.fill();
+  });
+}
+
+// ─── FLOATING SPORES / POLLEN ─────────────────
+const SPORES = Array.from({length:35}, () => ({
+  x: Math.random(), y: Math.random(),
+  vy: -(0.012 + Math.random()*0.018) / 60,
+  vx: ((Math.random()-0.5)*0.012) / 60,
+  wobble: Math.random()*Math.PI*2,
+  ws: (Math.random()-0.5)*0.008,
+  r: Math.random()*1.6 + 0.5,
+  col: [[212,168,67],[232,165,201],[126,206,190],[179,157,219]][Math.floor(Math.random()*4)],
+  alpha: Math.random()*0.3 + 0.08,
+  life: Math.random(),
+}));
+
+function drawSpores(dt) {
+  SPORES.forEach(p => {
+    p.life += dt / (18 + Math.random()*12);
+    p.wobble += p.ws;
+    if (p.life >= 1) { p.x=Math.random(); p.y=1.02; p.life=0; }
+    p.x += p.vx + Math.sin(p.wobble)*0.00015;
+    p.y += p.vy;
+    const fade = p.life<0.1 ? p.life/0.1 : p.life>0.85 ? (1-p.life)/0.15 : 1;
+    const [rv,gv,bv] = p.col;
+    cx.beginPath(); cx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+    cx.fillStyle = `rgba(${rv},${gv},${bv},${p.alpha*fade})`; cx.fill();
+  });
+}
+
+// ─── MAIN LOOP ────────────────────────────────
+let lastT = now();
+function loop() {
+  const t  = now();
+  const dt = Math.min(t - lastT, 0.05);
+  lastT = t;
+
+  cx.clearRect(0,0,W,H);
+  drawOrbs(t);
+  drawSpores(dt);
+
+  requestAnimationFrame(loop);
+}
+loop();
+
+// ── AMBIENT CSS ORBS ──
+function createOrbs() {
+  [
+    { size:750, x:8,  y:15, col:'rgba(124,92,191,0.048)', dur:35 },
+    { size:550, x:70, y:55, col:'rgba(126,206,190,0.042)',dur:42 },
+    { size:650, x:42, y:80, col:'rgba(232,165,201,0.042)',dur:38 },
+    { size:500, x:85, y:30, col:'rgba(212,168,67,0.038)', dur:30 },
+  ].forEach((o,i) => {
+    const el = document.createElement('div');
+    el.className = 'orb-pulse';
+    el.style.cssText = `width:${o.size}px;height:${o.size}px;left:${o.x}%;top:${o.y}%;`
+      +`background:radial-gradient(circle,${o.col} 0%,transparent 70%);`
+      +`animation-duration:${o.dur}s;animation-delay:${-i*8}s;`;
+    document.body.appendChild(el);
+  });
+}
+createOrbs();
+
+// Audio context for bowls
+let audioCtx = null;
+function getAudio() {
+  const ac = AUDIO.get();
+  if (ac) { audioCtx = ac; return ac; }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function playBowlTone(freq, color) {
+  try {
+    const ac = getAudio();
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    const convolver = ac.createConvolver ? ac.createConvolver() : null;
+
+    osc.connect(gain);
+    gain.connect(ac.destination);
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, ac.currentTime);
+
+    gain.gain.setValueAtTime(0, ac.currentTime);
+    gain.gain.linearRampToValueAtTime(0.18, ac.currentTime + 0.05);
+    gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+
+    // Harmonic overtones for richness
+    const osc2 = ac.createOscillator();
+    const gain2 = ac.createGain();
+    osc2.connect(gain2);
+    gain2.connect(ac.destination);
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(freq * 2.756, ac.currentTime);
+    gain2.gain.setValueAtTime(0, ac.currentTime);
+    gain2.gain.linearRampToValueAtTime(0.06, ac.currentTime + 0.1);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 2.5);
+
+    osc.start(); osc.stop(ac.currentTime + 3.5);
+    osc2.start(); osc2.stop(ac.currentTime + 2.5);
+  } catch(e) {}
+}
+
+// ── REALISTIC CRYSTAL SINGING BOWLS ──
+window.addEventListener('load', function() { (function() {
+  const ns = 'http://www.w3.org/2000/svg';
+  const stage = document.getElementById('bowl-stage');
+
+  // Single SVG for the whole bowl row
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 910 415');
+  svg.setAttribute('width', '100%');
+  svg.setAttribute('height', 'auto');
+  svg.style.cssText = 'display:block;overflow:visible;max-width:100%;';
+  stage.appendChild(svg);
+
+  const defs = document.createElementNS(ns, 'defs');
+  svg.appendChild(defs);
+
+  // Shared shadow blur filter
+  const sf = document.createElementNS(ns, 'filter');
+  sf.id = 'sf'; sf.setAttribute('x','-80%'); sf.setAttribute('y','-80%');
+  sf.setAttribute('width','260%'); sf.setAttribute('height','260%');
+  const sfb = document.createElementNS(ns, 'feGaussianBlur'); sfb.setAttribute('stdDeviation','6');
+  sf.appendChild(sfb); defs.appendChild(sf);
+
+  // Surface line (the table/shelf they rest on)
+  const surface = document.createElementNS(ns, 'line');
+  surface.setAttribute('x1','30'); surface.setAttribute('y1','366');
+  surface.setAttribute('x2','880'); surface.setAttribute('y2','366');
+  surface.setAttribute('stroke','rgba(212,168,67,0.18)'); surface.setAttribute('stroke-width','1');
+  svg.appendChild(surface);
+
+  const bowlData = [
+    { freq:256, note:'C', label:'Root Chakra',   base:'#b83030', light:'#f06060', dark:'#4a0808' },
+    { freq:288, note:'D', label:'Sacral Chakra', base:'#b86820', light:'#f09840', dark:'#4a2805' },
+    { freq:320, note:'E', label:'Solar Plexus',  base:'#a09810', light:'#e8d030', dark:'#404000' },
+    { freq:341, note:'F', label:'Heart Chakra',  base:'#209830', light:'#48d858', dark:'#083a0a' },
+    { freq:384, note:'G', label:'Throat Chakra', base:'#1870b8', light:'#40a8f0', dark:'#062848' },
+    { freq:426, note:'A', label:'Third Eye',     base:'#4830b0', light:'#7860e8', dark:'#180848' },
+    { freq:480, note:'B', label:'Crown Chakra',  base:'#9820b0', light:'#c848e8', dark:'#380848' },
+  ];
+
+  // Graduated sizes – centre bowl largest, arcing outward
+  const sizes = [86, 100, 114, 128, 114, 100, 86];
+  const xPos  = [65, 192, 320, 455, 590, 718, 845];
+  const SURF  = 364; // surface Y
+
+  const mk = (parent, tag, attrs) => {
+    const el = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, v));
+    parent.appendChild(el); return el;
+  };
+
+  bowlData.forEach((b, i) => {
+    const sz  = sizes[i];
+    const cx2  = xPos[i];
+    const rRx = sz * 0.468;   // rim outer x-radius
+    const rRy = sz * 0.096;   // rim foreshortening (depth perspective)
+    const bH  = sz * 0.565;   // bowl body height
+    const bW  = sz * 0.24;    // bottom half-width (bowls taper inward)
+    const wt  = sz * 0.056;   // wall thickness
+    const topY = SURF - bH;   // top of rim center
+    const botY = SURF;        // bottom of bowl (at surface)
+    const midBodyY = topY + bH * 0.5;
+
+    // Per-bowl glow filter
+    const gf = document.createElementNS(ns, 'filter');
+    gf.id = `gf${i}`; gf.setAttribute('x','-70%'); gf.setAttribute('y','-70%');
+    gf.setAttribute('width','240%'); gf.setAttribute('height','240%');
+    const gfb = document.createElementNS(ns, 'feGaussianBlur');
+    gfb.setAttribute('in','SourceGraphic'); gfb.setAttribute('stdDeviation','13'); gfb.setAttribute('result','blur');
+    const gfm = document.createElementNS(ns, 'feMerge');
+    ['blur','SourceGraphic'].forEach(src => { const mn = document.createElementNS(ns,'feMergeNode'); mn.setAttribute('in',src); gfm.appendChild(mn); });
+    gf.appendChild(gfb); gf.appendChild(gfm); defs.appendChild(gf);
+
+    const g = document.createElementNS(ns, 'g');
+    g.style.cursor = 'none';
+
+    // ── Floor shadow ──
+    mk(g,'ellipse',{ cx:cx2, cy:SURF+9, rx:rRx*0.85, ry:10, fill:'rgba(0,0,0,0.32)', filter:'url(#sf)' });
+
+    // ── Cushion / O-ring the bowl rests on ──
+    // Outer ring fill
+    mk(g,'ellipse',{ cx:cx2, cy:SURF, rx:rRx*0.4, ry:8.5, fill:'rgba(110,80,45,0.55)' });
+    // Inner ring highlight
+    mk(g,'ellipse',{ cx:cx2, cy:SURF-0.5, rx:rRx*0.3, ry:4.5, fill:'rgba(175,135,75,0.35)' });
+    // Tiny specular on cushion
+    mk(g,'ellipse',{ cx:cx2-rRx*0.05, cy:SURF-2, rx:rRx*0.14, ry:1.8, fill:'rgba(220,185,120,0.38)' });
+
+    // ── Bowl body (main outer silhouette path) ──
+    // Cubic beziers: rim edge → curve in → base center, mirrored
+    const bp = `M ${cx2-rRx},${topY} C ${cx2-rRx},${topY+bH*0.88} ${cx2-bW*1.6},${botY-1.5} ${cx2},${botY} C ${cx2+bW*1.6},${botY-1.5} ${cx2+rRx},${topY+bH*0.88} ${cx2+rRx},${topY} Z`;
+    const bodyPath = mk(g,'path',{ d:bp, fill:b.base, opacity:'0.92' });
+    bodyPath.style.transition = 'fill 0.22s, opacity 0.22s';
+
+    // ── Left glass sheen ──  (bright diagonal stripe)
+    const sp = `M ${cx2-rRx*0.93},${topY+rRy*1.1} C ${cx2-rRx*0.91},${topY+bH*0.74} ${cx2-bW*0.85},${botY-9} ${cx2-bW*0.1},${botY-6} C ${cx2-bW*0.75},${botY-9} ${cx2-rRx*0.7},${topY+bH*0.66} ${cx2-rRx*0.7},${topY+rRy*1.1} Z`;
+    mk(g,'path',{ d:sp, fill:'rgba(255,255,255,0.11)' });
+
+    // ── Right-side depth shadow ──
+    const rsp = `M ${cx2+rRx*0.55},${topY+rRy} C ${cx2+rRx*0.57},${topY+bH*0.82} ${cx2+bW*0.92},${botY-4} ${cx2+bW*0.42},${botY-3} C ${cx2+bW*0.88},${botY-4} ${cx2+rRx*0.93},${topY+bH*0.8} ${cx2+rRx},${topY+rRy} Z`;
+    mk(g,'path',{ d:rsp, fill:'rgba(0,0,0,0.19)' });
+
+    // ── Rim – top face (wide ellipse, the rim opening seen from slight above) ──
+    const rimEl = mk(g,'ellipse',{ cx:cx2, cy:topY, rx:rRx, ry:rRy, fill:b.light, opacity:'0.94' });
+    rimEl.style.transition = 'fill 0.22s';
+
+    // Bright specular highlight on rim (upper-left crescent)
+    mk(g,'ellipse',{ cx:cx2-rRx*0.25, cy:topY-rRy*0.3, rx:rRx*0.5, ry:rRy*0.37, fill:'rgba(255,255,255,0.48)' });
+
+    // ── Rim inner wall (dark ellipse inside the rim, showing wall thickness) ──
+    const innerEl = mk(g,'ellipse',{ cx:cx2, cy:topY+wt*0.5, rx:rRx-wt, ry:rRy-wt*0.38, fill:b.dark, opacity:'0.92' });
+    innerEl.style.transition = 'fill 0.22s';
+
+    // Subtle interior depth reflection
+    mk(g,'ellipse',{ cx:cx2, cy:topY+wt*0.7, rx:rRx*0.32, ry:rRy*0.28, fill:'rgba(255,255,255,0.065)' });
+
+    // ── Crystal bottom gleam (tiny dot of light at the deepest visible point) ──
+    mk(g,'ellipse',{ cx:cx2-sz*0.06, cy:midBodyY+sz*0.06, rx:sz*0.055, ry:sz*0.02, fill:'rgba(255,255,255,0.09)' });
+
+    // ── Note letter on body ──
+    const noteEl = mk(g,'text',{
+      x:cx2, y:midBodyY + sz*0.03,
+      'text-anchor':'middle', 'dominant-baseline':'middle',
+      'font-family':'Cinzel Decorative, serif',
+      'font-size': Math.floor(sz*0.235),
+      fill:'rgba(255,255,255,0.78)', 'font-weight':'700'
+    });
+    noteEl.textContent = b.note;
+
+    // ── Frequency Hz label (small, below note) ──
+    mk(g,'text',{
+      x:cx2, y:midBodyY + sz*0.22,
+      'text-anchor':'middle', 'dominant-baseline':'middle',
+      'font-family':'Raleway, sans-serif',
+      'font-size': Math.floor(sz*0.085),
+      fill:'rgba(255,255,255,0.35)'
+    }).textContent = b.freq + ' Hz';
+
+    // ── Chakra label below surface (hidden → shown on hover) ──
+    const lbl = mk(g,'text',{
+      x:cx2, y:SURF+32,
+      'text-anchor':'middle',
+      'font-family':'Raleway, sans-serif',
+      'font-size':'9', fill:b.light, opacity:'0', 'letter-spacing':'1.8'
+    });
+    lbl.textContent = b.label.toUpperCase();
+    lbl.style.transition = 'opacity 0.3s';
+
+    svg.appendChild(g);
+
+    // ── Interaction ──
+    let playing = false;
+    let playTimeout = null;
+
+    const on = () => {
+      g.setAttribute('filter', `url(#gf${i})`);
+      bodyPath.setAttribute('fill', b.light); bodyPath.setAttribute('opacity','1');
+      rimEl.setAttribute('fill','#ffffff');
+      innerEl.setAttribute('fill', b.base);
+      lbl.setAttribute('opacity','1');
+    };
+    const off = () => {
+      g.removeAttribute('filter');
+      bodyPath.setAttribute('fill', b.base); bodyPath.setAttribute('opacity','0.92');
+      rimEl.setAttribute('fill', b.light);
+      innerEl.setAttribute('fill', b.dark);
+      lbl.setAttribute('opacity','0');
+    };
+    const ping = (force) => {
+      // Allow re-trigger on glide (mouseenter always fires)
+      if (playing && !force) return;
+      if (playTimeout) clearTimeout(playTimeout);
+      playing = true;
+      playBowlTone(b.freq);
+      // Ripple from bowl center
+      const svgR = svg.getBoundingClientRect();
+      const scX  = svgR.width / 910, scY = svgR.height / 415;
+      const bx = svgR.left + cx2 * scX;
+      const by = svgR.top + midBodyY * scY;
+      const rip = document.createElement('div');
+      rip.style.cssText = `position:fixed;left:${bx}px;top:${by}px;width:65px;height:65px;border-radius:50%;border:2px solid ${b.light};transform:translate(-50%,-50%) scale(0);pointer-events:none;z-index:9998;animation:rippleOut 0.95s ease-out forwards;box-shadow:0 0 20px ${b.base};`;
+      document.body.appendChild(rip);
+      playTimeout = setTimeout(() => { rip.remove(); playing = false; }, 1200);
+    };
+
+    // mouseenter always triggers — enables gliding across bowls
+    g.addEventListener('mouseenter', () => { AUDIO.resume(); on(); ping(true); });
+    g.addEventListener('mouseleave', off);
+    g.addEventListener('click', () => { AUDIO.resume(); on(); ping(true); });
+    g.addEventListener('touchstart', e => { e.preventDefault(); AUDIO.resume(); on(); ping(true); }, { passive:false });
+    g.addEventListener('touchend', () => setTimeout(off, 500));
+  });
+})(); }); // end load
+
+// Form submit
+// ── EMAILJS CONFIG — fill in your IDs below ──────────────
+// 1. Sign up free at https://www.emailjs.com
+// 2. Create an Email Service (Gmail, Outlook, etc) → copy Service ID
+// 3. Create an Email Template → copy Template ID
+// 4. Go to Account → copy your Public Key
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← paste here
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← paste here
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← paste here
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+function submitForm() {
+  const form = document.getElementById('booking-form-inner');
+  const btn  = form.querySelector('.form-submit');
+
+  // Basic validation
+  const fields = form.querySelectorAll('input[name], select[name], textarea[name]');
+  let valid = true;
+  fields.forEach(f => {
+    f.style.borderColor = '';
+    if (!f.value.trim()) { f.style.borderColor = 'rgba(232,100,100,0.7)'; valid = false; }
+  });
+  if (!valid) return;
+
+  // Collect form data
+  const data = {};
+  fields.forEach(f => { data[f.name] = f.value.trim(); });
+  data.from_name = data.first_name + ' ' + data.last_name;
+
+  // Show sending state
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+    .then(() => {
+      document.getElementById('booking-form-inner').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      // GA: track successful booking submission
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'booking_submitted', { event_category: 'Booking', event_label: data.session_type });
+      }
+    })
+    .catch((err) => {
+      // Error — reset button and show message
+      btn.textContent = 'Send My Booking Request ✦';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.background = 'linear-gradient(135deg, #c96f6f 0%, #e87a7a 100%)';
+      btn.textContent = 'Something went wrong — please try again';
+      setTimeout(() => {
+        btn.style.background = '';
+        btn.textContent = 'Send My Booking Request ✦';
+      }, 3000);
+      console.error('EmailJS error:', err);
+    });
+}
+
+// Pre-select package in booking form
+function selectPackage(name) {
+  const sel = document.querySelector('#booking select');
+  if (!sel) return;
+  for (let i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].text === name) { sel.selectedIndex = i; break; }
+  }
+  sel.style.transition = 'border-color 0.3s, box-shadow 0.3s';
+  sel.style.borderColor = 'rgba(212,168,67,0.9)';
+  sel.style.boxShadow = '0 0 20px rgba(212,168,67,0.3)';
+  setTimeout(() => { sel.style.borderColor = ''; sel.style.boxShadow = ''; }, 1800);
+  // GA: track which package was clicked
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'select_package', { event_category: 'Booking', event_label: name });
+  }
+}
+
+// ═══════════════════════════════════════════
+//  PREMIUM ENHANCEMENTS
+// ═══════════════════════════════════════════
+
+// ── 1. ANIMATED FILM GRAIN ──────────────────
+(function() {
+  const gc  = document.getElementById('grain-canvas');
+  const gctx = gc.getContext('2d');
+  let gW, gH;
+  function resizeGrain() { gW = gc.width = window.innerWidth; gH = gc.height = window.innerHeight; }
+  resizeGrain(); window.addEventListener('resize', resizeGrain);
+  let gFrame = 0;
+  function drawGrain() {
+    gFrame++;
+    // Only redraw every 3 frames — imperceptible but saves GPU
+    if (gFrame % 3 !== 0) { requestAnimationFrame(drawGrain); return; }
+    const img = gctx.createImageData(gW, gH);
+    const d   = img.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = Math.random() * 255 | 0;
+      d[i] = d[i+1] = d[i+2] = v; d[i+3] = 28;
+    }
+    gctx.putImageData(img, 0, 0);
+    requestAnimationFrame(drawGrain);
+  }
+  drawGrain();
+})();
+
+// ── 2. DRAGONFLY CURSOR ──────────────────────
+(function() {
+  // Only run on devices with a real mouse
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  const dfc  = document.getElementById('df-cursor');
+  if (!dfc) return;
+  dfc.style.display = 'block'; // show only on desktop
+  const dc   = dfc.getContext('2d');
+  const SZ   = 80;  // canvas px (displayed at 40px via CSS)
+
+  let mx = window.innerWidth/2,  my = window.innerHeight/2;
+  let dx = mx, dy = my;          // dragonfly actual pos (lags behind)
+  let angle = 0;                 // direction it's facing
+  let wingT = 0;                 // wing beat phase
+  let isHover = false;
+  let trailDots = [];            // light trail behind the dragonfly
+  let idleT = 0;                 // time since last movement (for perching)
+  let lastMx = mx, lastMy = my;
+  let speed = 0;
+
+  // Palette cycles through healing colours
+  const COLS = [
+    [126,206,190],  // teal
+    [179,157,219],  // violet
+    [126,206,190],  // teal
+    [232,165,201],  // rose
+    [212,168,67],   // gold
+  ];
+  let colIdx = 0, colT = 0;
+  let r = COLS[0][0], g = COLS[0][1], b = COLS[0][2]; // shared colour state
+
+  // Cursor dot + trail
+  const cursorDot   = document.getElementById('cursor');
+  const cursorTrail = document.getElementById('cursor-trail');
+  let trailX = window.innerWidth/2, trailY = window.innerHeight/2;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (cursorDot) { cursorDot.style.left = mx+'px'; cursorDot.style.top = my+'px'; cursorDot.style.opacity='1'; }
+  });
+
+  // Smooth trailing ring
+  (function animateTrail() {
+    trailX += (mx - trailX) * 0.13;
+    trailY += (my - trailY) * 0.13;
+    if (cursorTrail) { cursorTrail.style.left = trailX+'px'; cursorTrail.style.top = trailY+'px'; }
+    requestAnimationFrame(animateTrail);
+  })();
+
+  // Scale cursor on hover over interactive elements
+  document.querySelectorAll('a,button,.service-card,.event-card,.about-card,.testimonial-card,#breath-canvas').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (cursorDot)   { cursorDot.style.width='14px'; cursorDot.style.height='14px'; cursorDot.style.background='var(--rose)'; }
+      if (cursorTrail) { cursorTrail.style.width='44px'; cursorTrail.style.height='44px'; cursorTrail.style.borderColor='rgba(232,165,201,0.5)'; }
+    });
+    el.addEventListener('mouseleave', () => {
+      if (cursorDot)   { cursorDot.style.width='8px'; cursorDot.style.height='8px'; cursorDot.style.background='var(--gold)'; }
+      if (cursorTrail) { cursorTrail.style.width='28px'; cursorTrail.style.height='28px'; cursorTrail.style.borderColor='rgba(212,168,67,0.35)'; }
+    });
+  });
+
+  // Hover pulse on interactive elements
+  document.querySelectorAll('a,button,.service-card,.event-card,.about-card,.testimonial-card,#breath-canvas').forEach(el => {
+    el.addEventListener('mouseenter', () => isHover=true);
+    el.addEventListener('mouseleave', () => isHover=false);
+  });
+
+  function drawDragonfly(t) {
+    dc.clearRect(0, 0, SZ, SZ);
+    const cx = SZ/2, cy = SZ/2;
+
+    // Current colour (slow cycle)
+    colT += 0.004;
+    const ci1 = Math.floor(colT) % COLS.length;
+    const ci2 = (ci1+1) % COLS.length;
+    const cp  = colT % 1;
+    [r,g,b] = COLS[ci1].map((v,i) => Math.round(v + (COLS[ci2][i]-v)*cp));
+
+    // Wing beat — faster when moving, slow flutter when idle
+    const wRate = speed > 0.5 ? 0.32 : 0.10;
+    wingT += wRate;
+    const wFlap = Math.sin(wingT) * (speed > 0.5 ? 1.0 : 0.15);
+
+    // Scale up on hover
+    const sc = isHover ? 1.35 : 1.0;
+
+    dc.save();
+    dc.translate(cx, cy);
+    dc.scale(sc, sc);
+
+    // ── LIGHT AURA (soft radial glow around whole body) ──
+    const aGrad = dc.createRadialGradient(0, 0, 2, 0, 0, 22);
+    aGrad.addColorStop(0,   `rgba(${r},${g},${b},${isHover ? 0.22 : 0.10})`);
+    aGrad.addColorStop(0.5, `rgba(${r},${g},${b},${isHover ? 0.10 : 0.04})`);
+    aGrad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+    dc.beginPath(); dc.arc(0,0,22,0,Math.PI*2);
+    dc.fillStyle=aGrad; dc.fill();
+
+    // ── 4 WINGS ──────────────────────────────────────────────
+    // Forewings (larger, upper)
+    [[-1,1],[-1,-1]].forEach(([fx,fy],wi) => {
+      const wAngle = fy * (0.42 + wFlap*0.55);
+      dc.save();
+      dc.translate(fx*1.5, fy*2);
+      dc.rotate(wAngle);
+      const wl = 13, ww = 7;
+      const wg = dc.createLinearGradient(0,0,0,-wl);
+      wg.addColorStop(0,   `rgba(${r},${g},${b},0.55)`);
+      wg.addColorStop(0.45,`rgba(${r},${g},${b},0.38)`);
+      wg.addColorStop(1,   `rgba(255,255,255,0.12)`);
+      dc.beginPath();
+      dc.moveTo(0,0);
+      dc.bezierCurveTo( ww*0.9,-wl*0.3,  ww*0.7,-wl*0.85, 0,-wl);
+      dc.bezierCurveTo(-ww*0.4,-wl*0.75,-ww*0.3,-wl*0.25, 0,0);
+      dc.closePath();
+      dc.fillStyle=wg; dc.fill();
+      // Wing vein
+      dc.beginPath(); dc.moveTo(0,0); dc.lineTo(0,-wl*0.78);
+      dc.strokeStyle=`rgba(${r},${g},${b},0.4)`; dc.lineWidth=0.5; dc.stroke();
+      // Cross vein
+      dc.beginPath();
+      dc.moveTo(-ww*0.25, -wl*0.45);
+      dc.lineTo( ww*0.35, -wl*0.35);
+      dc.strokeStyle=`rgba(${r},${g},${b},0.22)`; dc.lineWidth=0.4; dc.stroke();
+      dc.restore();
+    });
+
+    // Hindwings (smaller, lower, phase offset)
+    [[-1,1],[-1,-1]].forEach(([fx,fy],wi) => {
+      const wAngle = fy * (0.30 + wFlap*0.40);
+      dc.save();
+      dc.translate(fx*1.2, fy*3.5);
+      dc.rotate(wAngle * 0.7);
+      const wl=10, ww=5.5;
+      const wg2 = dc.createLinearGradient(0,0,0,-wl);
+      wg2.addColorStop(0,   `rgba(${r},${g},${b},0.45)`);
+      wg2.addColorStop(1,   `rgba(255,255,255,0.08)`);
+      dc.beginPath();
+      dc.moveTo(0,0);
+      dc.bezierCurveTo( ww*0.8,-wl*0.3, ww*0.6,-wl*0.8, 0,-wl);
+      dc.bezierCurveTo(-ww*0.3,-wl*0.7,-ww*0.2,-wl*0.2, 0,0);
+      dc.closePath();
+      dc.fillStyle=wg2; dc.fill();
+      dc.restore();
+    });
+
+    // ── ABDOMEN (segmented, tapers toward tail) ──────────────
+    const segCount = 6;
+    for (let s=0; s<segCount; s++) {
+      const sy   = -3 + s * 2.8;
+      const sr   = (2.6 - s*0.32);
+      const dim  = 1 - s*0.08;
+      const segG = dc.createRadialGradient(-sr*0.3,-0.3,0, 0,sy,sr);
+      segG.addColorStop(0, `rgba(255,255,255,${0.5*dim})`);
+      segG.addColorStop(0.3,`rgba(${r},${g},${b},${0.9*dim})`);
+      segG.addColorStop(1,  `rgba(${Math.round(r*0.6)},${Math.round(g*0.6)},${Math.round(b*0.6)},${0.7*dim})`);
+      dc.beginPath(); dc.ellipse(0, sy, sr, sr*0.78, 0, 0, Math.PI*2);
+      dc.fillStyle=segG; dc.fill();
+    }
+    // Tail point
+    dc.beginPath();
+    dc.moveTo(-0.8, -3+segCount*2.8);
+    dc.lineTo(0,    -3+segCount*2.8+4.5);
+    dc.lineTo(0.8,  -3+segCount*2.8);
+    const tailG = dc.createLinearGradient(0,-3+segCount*2.8, 0,-3+segCount*2.8+4.5);
+    tailG.addColorStop(0, `rgba(${r},${g},${b},0.8)`);
+    tailG.addColorStop(1, `rgba(${r},${g},${b},0)`);
+    dc.fillStyle=tailG; dc.fill();
+
+    // ── THORAX ────────────────────────────────────────────────
+    const thG = dc.createRadialGradient(-1.5,-5.5,0, 0,-4,5);
+    thG.addColorStop(0,   `rgba(255,255,255,0.85)`);
+    thG.addColorStop(0.3, `rgba(${r},${g},${b},0.95)`);
+    thG.addColorStop(1,   `rgba(${Math.round(r*0.65)},${Math.round(g*0.65)},${Math.round(b*0.65)},0.9)`);
+    dc.beginPath(); dc.ellipse(0,-4, 2.8,3.8, 0,0,Math.PI*2);
+    dc.fillStyle=thG; dc.fill();
+
+    // ── HEAD ──────────────────────────────────────────────────
+    const hG = dc.createRadialGradient(-1,-8.5,0.5, 0,-7.8,3.5);
+    hG.addColorStop(0,   `rgba(255,255,255,0.90)`);
+    hG.addColorStop(0.4, `rgba(${r},${g},${b},0.95)`);
+    hG.addColorStop(1,   `rgba(${Math.round(r*0.6)},${Math.round(g*0.6)},${Math.round(b*0.6)},0.85)`);
+    dc.beginPath(); dc.arc(0,-7.8, 3.2, 0,Math.PI*2);
+    dc.fillStyle=hG; dc.fill();
+
+    // Eyes — compound, iridescent
+    [[-1.6,-8.0],[1.6,-8.0]].forEach(([ex,ey]) => {
+      const eg = dc.createRadialGradient(ex-0.4,ey-0.4,0, ex,ey,2.0);
+      eg.addColorStop(0,   'rgba(255,255,255,0.95)');
+      eg.addColorStop(0.5, `rgba(${r},${g},${b},0.7)`);
+      eg.addColorStop(1,   'rgba(10,5,25,0.9)');
+      dc.beginPath(); dc.arc(ex,ey,2.0,0,Math.PI*2);
+      dc.fillStyle=eg; dc.fill();
+      // Pupil
+      dc.beginPath(); dc.arc(ex+0.3,ey+0.2,0.8,0,Math.PI*2);
+      dc.fillStyle='rgba(8,4,20,0.95)'; dc.fill();
+      // Specular
+      dc.beginPath(); dc.arc(ex-0.5,ey-0.5,0.55,0,Math.PI*2);
+      dc.fillStyle='rgba(255,255,255,0.85)'; dc.fill();
+    });
+
+    // Antennae
+    [[-1.2,-10.8],[1.2,-10.8]].forEach(([ax,ay],ai) => {
+      dc.beginPath();
+      dc.moveTo(ax*0.4, -10.2);
+      dc.quadraticCurveTo(ax*1.4, ay, ax*1.8, ay-1.5);
+      dc.strokeStyle=`rgba(${r},${g},${b},0.6)`; dc.lineWidth=0.6; dc.stroke();
+      // Tip dot
+      dc.beginPath(); dc.arc(ax*1.8, ay-1.5, 0.8, 0, Math.PI*2);
+      dc.fillStyle=`rgba(${r},${g},${b},0.7)`; dc.fill();
+    });
+
+    dc.restore();
+  }
+
+  // Position/orient the dragonfly
+  let rafId;
+  function tick() {
+    const t = performance.now()/1000;
+
+    // Move toward cursor with smooth lag
+    const ddx = mx - dx, ddy = my - dy;
+    const dist = Math.sqrt(ddx*ddx + ddy*ddy);
+    speed = dist;
+    const spd = Math.min(0.22, 0.08 + dist*0.001);
+    dx += ddx * spd;
+    dy += ddy * spd;
+
+    // Face direction of travel
+    if (dist > 1.5) {
+      const targetAngle = Math.atan2(ddy, ddx) + Math.PI/2; // +90° so "up" points forward
+      let da = targetAngle - angle;
+      while (da >  Math.PI) da -= Math.PI*2;
+      while (da < -Math.PI) da += Math.PI*2;
+      angle += da * 0.12;
+    }
+
+    // Position canvas
+    dfc.style.left = dx + 'px';
+    dfc.style.top  = dy + 'px';
+    dfc.style.transform = `translate(-50%,-50%) rotate(${angle}rad)`;
+
+    // Trail dots
+    if (dist > 2) {
+      trailDots.push({ x:dx, y:dy, life:1, r,g,b });
+    }
+
+    // Draw
+    drawDragonfly(t);
+    rafId = requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// ── 3. NAV SCROLL TINT ───────────────────────
+(function() {
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  function onScroll() {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ── 4. CARD MOUSE-LIGHT SHIMMER ──────────────
+(function() {
+  // Inject shimmer div into every card
+  document.querySelectorAll('.service-card,.event-card,.about-card,.testimonial-card').forEach(card => {
+    card.style.position = 'relative';
+    const sh = document.createElement('div');
+    sh.className = 'card-shimmer';
+    card.appendChild(sh);
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1) + '%';
+      const y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1) + '%';
+      sh.style.setProperty('--mx', x);
+      sh.style.setProperty('--my', y);
+    });
+  });
+})();
+
+// ── 5. DIVIDER — LIQUID LIGHT ────────────────
+window.addEventListener('load', function() { (function() {
+  const COLORS = [
+    [212,168,67],   // gold
+    [240,207,122],  // gold light
+    [232,165,201],  // rose
+    [179,157,219],  // violet
+    [126,206,190],  // teal
+    [94,240,232],   // cyan
+  ];
+
+  document.querySelectorAll('.aura-divider').forEach((div, di) => {
+    const cvs = document.createElement('canvas');
+    div.appendChild(cvs);
+    const ctx = cvs.getContext('2d');
+    let W, H, dpr;
+    let particles = [];
+    let running = false;
+    let raf = null;
+    let triggerDir = 1;
+
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      const rect = div.getBoundingClientRect();
+      W = cvs.width  = (rect.width  || div.offsetWidth)  * dpr;
+      H = cvs.height = (rect.height || div.offsetHeight) * dpr;
+      cvs.style.width  = (rect.width  || div.offsetWidth)  + 'px';
+      cvs.style.height = (rect.height || div.offsetHeight) + 'px';
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const CY = () => H * 0.5; // centre Y in canvas px
+
+    // ── Spawn a full set of particles along the line ──
+    function spawn(dir) {
+      particles = [];
+      const count = Math.floor(W / dpr / 3.5);
+      const baseColor = COLORS[(di * 2) % COLORS.length];
+      const accentColor = COLORS[(di * 2 + 2) % COLORS.length];
+
+      for (let i = 0; i < count; i++) {
+        const frac = i / count;
+        // Staggered delay so they ripple from the leading edge
+        const delay = dir === 1
+          ? frac * 1.6
+          : (1 - frac) * 1.6;
+
+        // Interpolate colour along the line
+        const t = frac;
+        const col = [
+          Math.round(baseColor[0] + (accentColor[0] - baseColor[0]) * t),
+          Math.round(baseColor[1] + (accentColor[1] - baseColor[1]) * t),
+          Math.round(baseColor[2] + (accentColor[2] - baseColor[2]) * t),
+        ];
+
+        particles.push({
+          x: frac * W,
+          y: CY(),
+          vy: (Math.random() - 0.5) * 0.9 * dpr,
+          size: (Math.random() * 1.8 + 0.5) * dpr,
+          col,
+          delay,
+          life: 0,
+          maxLife: 1.4 + Math.random() * 0.8,
+          twinkle: Math.random() * Math.PI * 2,
+          twinkleSpeed: 3 + Math.random() * 5,
+          alpha: Math.random() * 0.6 + 0.4,
+        });
+      }
+    }
+
+    // ── Draw the always-on resting line ──
+    function drawLine() {
+      const cy = CY();
+      const lg = ctx.createLinearGradient(0, 0, W, 0);
+      lg.addColorStop(0,    'rgba(0,0,0,0)');
+      lg.addColorStop(0.08, `rgba(${COLORS[0].join(',')},0.08)`);
+      lg.addColorStop(0.35, `rgba(${COLORS[0].join(',')},0.18)`);
+      lg.addColorStop(0.5,  `rgba(${COLORS[2].join(',')},0.15)`);
+      lg.addColorStop(0.65, `rgba(${COLORS[3].join(',')},0.15)`);
+      lg.addColorStop(0.92, `rgba(${COLORS[4].join(',')},0.08)`);
+      lg.addColorStop(1,    'rgba(0,0,0,0)');
+      ctx.strokeStyle = lg;
+      ctx.lineWidth = 0.75 * dpr;
+      ctx.beginPath();
+      ctx.moveTo(0, cy); ctx.lineTo(W, cy);
+      ctx.stroke();
+    }
+
+    // ── Draw the sweeping comet ──
+    function drawComet(elapsed, dir) {
+      const cy = CY();
+      const speed = 0.38; // fraction of W per second
+      const headFrac = dir === 1
+        ? Math.min(elapsed * speed, 1.08)
+        : Math.max(1 - elapsed * speed, -0.08);
+      const headX = headFrac * W;
+
+      // Tail length
+      const tailLen = W * 0.22;
+      const tailX = dir === 1 ? headX - tailLen : headX + tailLen;
+
+      // Comet tail — feathered gradient line
+      const cg = ctx.createLinearGradient(tailX, 0, headX, 0);
+      if (dir === 1) {
+        cg.addColorStop(0,   'rgba(0,0,0,0)');
+        cg.addColorStop(0.4, `rgba(${COLORS[0].join(',')},0.15)`);
+        cg.addColorStop(0.75,`rgba(${COLORS[1].join(',')},0.5)`);
+        cg.addColorStop(1,   'rgba(255,255,255,0.0)');
+      } else {
+        cg.addColorStop(0,   'rgba(255,255,255,0.0)');
+        cg.addColorStop(0.25,`rgba(${COLORS[1].join(',')},0.5)`);
+        cg.addColorStop(0.6, `rgba(${COLORS[0].join(',')},0.15)`);
+        cg.addColorStop(1,   'rgba(0,0,0,0)');
+      }
+      ctx.beginPath();
+      ctx.strokeStyle = cg;
+      ctx.lineWidth = 1.5 * dpr;
+      ctx.moveTo(tailX, cy); ctx.lineTo(headX, cy);
+      ctx.stroke();
+
+      // Head glow — layered radial bursts
+      [
+        [28 * dpr, 0.06],
+        [14 * dpr, 0.18],
+        [6  * dpr, 0.55],
+        [2.5* dpr, 1.00],
+      ].forEach(([r, a]) => {
+        const g = ctx.createRadialGradient(headX, cy, 0, headX, cy, r);
+        const [rv,gv,bv] = COLORS[1];
+        g.addColorStop(0,   `rgba(255,255,255,${a})`);
+        g.addColorStop(0.3, `rgba(${rv},${gv},${bv},${a * 0.7})`);
+        g.addColorStop(1,   `rgba(${rv},${gv},${bv},0)`);
+        ctx.beginPath(); ctx.arc(headX, cy, r, 0, Math.PI * 2);
+        ctx.fillStyle = g; ctx.fill();
+      });
+
+      // Vertical light bloom on head
+      const vg = ctx.createRadialGradient(headX, cy, 0, headX, cy, 20 * dpr);
+      vg.addColorStop(0,   `rgba(255,248,200,0.35)`);
+      vg.addColorStop(0.5, `rgba(212,168,67,0.1)`);
+      vg.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(headX, cy, 20 * dpr, 0, Math.PI * 2);
+      ctx.fillStyle = vg; ctx.fill();
+    }
+
+    // ── Main animation loop ──
+    let startT = null;
+    function loop(ts) {
+      if (!startT) startT = ts;
+      const elapsed = (ts - startT) / 1000;
+      const cy = CY();
+
+      ctx.clearRect(0, 0, W, H);
+      drawLine();
+
+      if (running) {
+        drawComet(elapsed, triggerDir);
+
+        // Particles
+        let anyAlive = false;
+        particles.forEach(p => {
+          if (elapsed < p.delay) return;
+          const age = elapsed - p.delay;
+          p.life = age / p.maxLife;
+          if (p.life >= 1) return;
+          anyAlive = true;
+
+          const fade = p.life < 0.15
+            ? p.life / 0.15
+            : p.life > 0.55
+              ? 1 - (p.life - 0.55) / 0.45
+              : 1;
+          p.twinkle += p.twinkleSpeed * 0.016;
+          const twink = 0.55 + Math.sin(p.twinkle) * 0.45;
+          const a = p.alpha * fade * twink;
+          const [r,g,b] = p.col;
+          const py = p.y + p.vy * age * 12;
+
+          // Soft halo
+          const halo = ctx.createRadialGradient(p.x, py, 0, p.x, py, p.size * 5);
+          halo.addColorStop(0, `rgba(${r},${g},${b},${a * 0.35})`);
+          halo.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.beginPath(); ctx.arc(p.x, py, p.size * 5, 0, Math.PI * 2);
+          ctx.fillStyle = halo; ctx.fill();
+
+          // Crisp core
+          ctx.beginPath(); ctx.arc(p.x, py, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${a * 0.85})`; ctx.fill();
+        });
+
+        // Stop when comet exits and particles done
+        const cometDone = triggerDir === 1
+          ? elapsed * 0.38 > 1.12
+          : elapsed * 0.38 > 1.12;
+        if (cometDone && !anyAlive) {
+          running = false;
+        }
+      }
+
+      raf = requestAnimationFrame(loop);
+    }
+
+    function trigger(dir) {
+      triggerDir = dir;
+      running = true;
+      startT = null;
+      spawn(dir);
+      if (!raf) raf = requestAnimationFrame(loop);
+    }
+
+    // Start idle loop immediately
+    raf = requestAnimationFrame(loop);
+
+    // IntersectionObserver
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const goingDown = e.boundingClientRect.top > 0;
+        trigger(goingDown ? 1 : -1);
+      });
+    }, { threshold: 0.5 });
+    obs.observe(div);
+  });
+})(); }); // end load
+
+// ── 6. MAGNETIC CARD TILT ────────────────────
+// Subtle 3D tilt on service cards as mouse moves over them
+(function() {
+  if (window.matchMedia('(hover: none)').matches) return; // skip on touch
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width/2)  / (rect.width/2);
+      const y = (e.clientY - rect.top  - rect.height/2) / (rect.height/2);
+      card.style.transform = `translateY(-6px) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
+      card.style.transition = 'transform 0.1s ease';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.18,0.89,0.32,1.28), border-color 0.4s, box-shadow 0.4s';
+    });
+  });
+})();
+// ═══════════════════════════════════════════
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('revealed');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+// Cards (existing behaviour, enhanced)
+document.querySelectorAll('.service-card, .event-card, .testimonial-card, .about-card').forEach((el, i) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = `${(i % 3) * 0.12}s`;
+  revealObserver.observe(el);
+});
+
+// Section labels, titles, intros, booking info
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ═══════════════════════════════════════════
+//  2. PARALLAX HERO
+// ═══════════════════════════════════════════
+// ── PARALLAX HERO (desktop only — touch devices skip) ──
+const parallaxSlow = document.querySelectorAll('.hero-parallax-slow');
+const parallaxMid  = document.querySelectorAll('.hero-parallax-mid');
+const parallaxFast = document.querySelectorAll('.hero-parallax-fast');
+const hasHover     = window.matchMedia('(hover: hover)').matches;
+
+function handleParallax() {
+  if (!hasHover) return;  // no parallax on touch/iOS
+  const scrollY = window.scrollY;
+  if (scrollY > window.innerHeight) return;
+  parallaxSlow.forEach(el => el.style.transform = `translateY(${scrollY * 0.12}px)`);
+  parallaxMid.forEach( el => el.style.transform = `translateY(${scrollY * 0.22}px)`);
+  parallaxFast.forEach(el => el.style.transform = `translateY(${scrollY * 0.38}px)`);
+}
+
+window.addEventListener('scroll', handleParallax, { passive: true });
+
+// ═══════════════════════════════════════════
+//  3. BREATHING WIDGET
+// ═══════════════════════════════════════════
+window.addEventListener('load', function() { (function() {
+  const bc   = document.getElementById('breath-canvas');
+  const bctx = bc.getContext('2d');
+  const dpr  = window.devicePixelRatio || 1;
+  const SZ   = 280;  // logical size
+  const BCX  = SZ / 2, BCY = SZ / 2;  // logical coords — context is DPR-scaled
+  bc.width   = SZ * dpr; bc.height = SZ * dpr;
+  bc.style.width = SZ + 'px'; bc.style.height = SZ + 'px';
+  bctx.scale(dpr, dpr);
+
+  let breathing  = false;
+  let breathT    = 0;
+  let breathRaf  = null;
+
+  // Phase config: [label, duration seconds, scale target]
+  const PHASES = [
+    { name: 'Inhale',    dur: 4,  scale: 1    },
+    { name: 'Hold',      dur: 4,  scale: 1    },
+    { name: 'Exhale',    dur: 6,  scale: 0    },
+    { name: 'Rest',      dur: 2,  scale: 0    },
+  ];
+  const CYCLE = PHASES.reduce((s,p) => s + p.dur, 0);  // 16s total
+
+  const PALETTE = [
+    [179,157,219],  // violet
+    [126,206,190],  // teal
+    [232,165,201],  // rose
+    [212,168,67],   // gold
+  ];
+
+  // Tone generator for each inhale
+  function playBreathTone(scale) {
+    try {
+      const ac = AUDIO.get();
+      if (!ac) return;
+      const freq = scale > 0.5 ? 432 : 288;
+      const osc = ac.createOscillator();
+      const gn  = ac.createGain();
+      osc.connect(gn); gn.connect(ac.destination);
+      osc.type = 'sine'; osc.frequency.value = freq;
+      gn.gain.setValueAtTime(0, ac.currentTime);
+      gn.gain.linearRampToValueAtTime(0.08, ac.currentTime + 0.3);
+      gn.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + (scale > 0.5 ? 3.8 : 5.5));
+      osc.start(); osc.stop(ac.currentTime + 6);
+    } catch(e) {}
+  }
+
+  // Get current phase + progress from breathT
+  function getPhase(t) {
+    const cyc = t % CYCLE;
+    let acc = 0;
+    for (let i = 0; i < PHASES.length; i++) {
+      const ph = PHASES[i];
+      if (cyc < acc + ph.dur) {
+        return { idx: i, name: ph.name, prog: (cyc - acc) / ph.dur, scale: ph.scale };
+      }
+      acc += ph.dur;
+    }
+    return { idx:0, name:'Inhale', prog:0, scale:1 };
+  }
+
+  // Smooth radius: ease in/out between inner and outer
+  function getRadius(ph) {
+    const minR = 52, maxR = 112;
+    let r;
+    if (ph.name === 'Inhale') {
+      r = minR + (maxR - minR) * easeInOutSine(ph.prog);
+    } else if (ph.name === 'Exhale') {
+      r = maxR - (maxR - minR) * easeInOutSine(ph.prog);
+    } else {
+      r = ph.scale > 0.5 ? maxR : minR;
+    }
+    return r;
+  }
+  function easeInOutSine(x) { return -(Math.cos(Math.PI * x) - 1) / 2; }
+
+  let lastPhaseIdx = -1;
+  let lastBreathTime = performance.now() / 1000;
+
+  function drawBreath() {
+    const now = performance.now() / 1000;
+    const dt  = Math.min(now - lastBreathTime, 0.05);
+    lastBreathTime = now;
+
+    if (breathing) breathT += dt;
+
+    bctx.clearRect(0, 0, 520, 520);
+
+    const ph = breathing ? getPhase(breathT) : { idx:0, name:'', prog:0, scale:0 };
+    const radius = breathing ? getRadius(ph) : 60;
+
+    // Trigger tone on new inhale
+    if (breathing && ph.idx === 0 && lastPhaseIdx !== 0) playBreathTone(1);
+    if (breathing) lastPhaseIdx = ph.idx;
+
+    // Colour cycles through palette each cycle
+    const colIdx  = Math.floor(breathT / CYCLE) % PALETTE.length;
+    const nextIdx = (colIdx + 1) % PALETTE.length;
+    const colProg = (breathT % CYCLE) / CYCLE;
+    const [r1,g1,b1] = PALETTE[colIdx];
+    const [r2,g2,b2] = PALETTE[nextIdx];
+    const rv = Math.round(r1 + (r2-r1)*colProg);
+    const gv = Math.round(g1 + (g2-g1)*colProg);
+    const bv = Math.round(b1 + (b2-b1)*colProg);
+
+    const t = now;
+
+    // Outer diffuse glow rings (always visible, pulse when breathing)
+    [1.95, 1.55, 1.2].forEach((mult, ri) => {
+      const gr = bctx.createRadialGradient(BCX,BCY,radius*0.6, BCX,BCY,radius*mult);
+      const a  = breathing ? (0.07 - ri*0.018) * (0.6 + Math.sin(t*0.8)*0.4) : 0.03;
+      gr.addColorStop(0,   `rgba(${rv},${gv},${bv},0)`);
+      gr.addColorStop(0.5, `rgba(${rv},${gv},${bv},${a})`);
+      gr.addColorStop(1,   `rgba(${rv},${gv},${bv},0)`);
+      bctx.beginPath(); bctx.arc(BCX,BCY,radius*mult,0,Math.PI*2);
+      bctx.fillStyle = gr; bctx.fill();
+    });
+
+    // Orbit ring — glow via two concentric strokes, no shadowBlur
+    bctx.beginPath(); bctx.arc(BCX,BCY,radius+22,0,Math.PI*2);
+    bctx.strokeStyle = `rgba(${rv},${gv},${bv},${breathing ? 0.08 : 0.04})`;
+    bctx.lineWidth = 6; bctx.stroke();
+    bctx.beginPath(); bctx.arc(BCX,BCY,radius+18,0,Math.PI*2);
+    bctx.strokeStyle = `rgba(${rv},${gv},${bv},${breathing ? 0.22 : 0.10})`;
+    bctx.lineWidth = 1; bctx.stroke();
+
+    // Orbiting dots
+    if (breathing) {
+      for (let d = 0; d < 8; d++) {
+        const da = (d/8)*Math.PI*2 + t*0.4;
+        const dr = radius + 18;
+        const px = BCX + Math.cos(da)*dr, py = BCY + Math.sin(da)*dr;
+        bctx.beginPath(); bctx.arc(px,py,2.5,0,Math.PI*2);
+        bctx.fillStyle = `rgba(${rv},${gv},${bv},0.5)`; bctx.fill();
+      }
+    }
+
+    // Main breathing circle
+    const cg = bctx.createRadialGradient(BCX-radius*0.25, BCY-radius*0.25, 0, BCX,BCY,radius);
+    cg.addColorStop(0,    `rgba(255,255,255,${breathing ? 0.18 : 0.06})`);
+    cg.addColorStop(0.35, `rgba(${rv},${gv},${bv},${breathing ? 0.45 : 0.15})`);
+    cg.addColorStop(0.75, `rgba(${rv},${gv},${bv},${breathing ? 0.32 : 0.10})`);
+    cg.addColorStop(1,    `rgba(${rv},${gv},${bv},0.08)`);
+    // Main circle — pre-glow pass with radial gradient (no shadowBlur)
+    const glowR = radius * (1.8 + (breathing ? 0.6 : 0));
+    const preGlow = bctx.createRadialGradient(BCX,BCY,radius*0.5, BCX,BCY,glowR);
+    preGlow.addColorStop(0,   `rgba(${rv},${gv},${bv},${breathing ? 0.18 : 0.05})`);
+    preGlow.addColorStop(0.5, `rgba(${rv},${gv},${bv},${breathing ? 0.08 : 0.02})`);
+    preGlow.addColorStop(1,   `rgba(${rv},${gv},${bv},0)`);
+    bctx.beginPath(); bctx.arc(BCX,BCY,glowR,0,Math.PI*2);
+    bctx.fillStyle=preGlow; bctx.fill();
+
+    bctx.beginPath(); bctx.arc(BCX,BCY,radius,0,Math.PI*2);
+    bctx.fillStyle = cg;
+    bctx.fill();
+
+    // Rim — outer soft stroke + inner crisp stroke (no shadowBlur)
+    bctx.beginPath(); bctx.arc(BCX,BCY,radius+3,0,Math.PI*2);
+    bctx.strokeStyle=`rgba(${rv},${gv},${bv},${breathing ? 0.25 : 0.10})`;
+    bctx.lineWidth=5; bctx.stroke();
+    bctx.beginPath(); bctx.arc(BCX,BCY,radius,0,Math.PI*2);
+    bctx.strokeStyle=`rgba(${rv},${gv},${bv},${breathing ? 0.65 : 0.25})`;
+    bctx.lineWidth=1.5; bctx.stroke();
+
+    // Update labels
+    document.getElementById('breath-label').textContent = breathing
+      ? (ph.name === 'Inhale' ? 'Breathe in...' : ph.name === 'Hold' ? 'Hold gently...' : ph.name === 'Exhale' ? 'Release...' : '')
+      : 'Touch to begin';
+    document.getElementById('breath-phase').textContent = breathing ? ph.name.toUpperCase() : '';
+
+    breathRaf = requestAnimationFrame(drawBreath);
+  }
+
+  window.toggleBreath = function() {
+    AUDIO.resume();  // iOS: resume context on user gesture
+    breathing = !breathing;
+    const btn = document.getElementById('breath-btn');
+    if (breathing) {
+      breathT = 0; lastPhaseIdx = -1;
+      btn.textContent = 'Pause';
+      btn.style.color = 'var(--teal)';
+      btn.style.borderColor = 'rgba(126,206,190,0.5)';
+    } else {
+      btn.textContent = 'Begin Breathing';
+      btn.style.color = 'var(--rose)';
+      btn.style.borderColor = 'rgba(232,165,201,0.35)';
+    }
+  };
+
+  // Click AND touchstart for instant iOS response (no 300ms delay)
+  function handleBreathTap(e) { e.preventDefault(); e.stopPropagation(); AUDIO.resume(); window.toggleBreath(); }
+  // Wire to wrap — the main tap target on iOS
+  const bWrap = document.getElementById('breath-wrap');
+  if (bWrap) {
+    bWrap.addEventListener('click', handleBreathTap);
+    bWrap.addEventListener('touchend', handleBreathTap, { passive: false });
+    bWrap.addEventListener('touchstart', function(e){ e.preventDefault(); }, { passive: false });
+  }
+  bc.addEventListener('click', handleBreathTap);
+
+  // Also wire the button touchstart
+  const breathBtn = document.getElementById('breath-btn');
+  if (breathBtn) {
+    breathBtn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      window.toggleBreath();
+    }, { passive: false });
+  }
+
+  drawBreath();
+})(); }); // end load
+
+// ── PWA SERVICE WORKER ───────────────────────
+// Registers sw.js for offline support & "Add to Home Screen"
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+</div><!-- /main-site -->
+
+</body>
+</html>
