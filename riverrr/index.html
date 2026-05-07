@@ -96,6 +96,7 @@
     width: 100%; height: 100%;
     pointer-events: none;
     z-index: 0;
+    contain: layout style paint;
   }
 
   /* Navigation */
@@ -193,6 +194,7 @@
     animation: breathe 6s ease-in-out infinite;
     pointer-events: none;
     filter: blur(3px);
+    will-change: transform;
   }
   .hero-aura2 {
     position: absolute;
@@ -204,6 +206,7 @@
     animation: breathe 4.5s ease-in-out infinite reverse;
     pointer-events: none;
     filter: blur(2px);
+    will-change: transform;
   }
 
   @keyframes breathe {
@@ -1147,6 +1150,7 @@
     touch-action: none;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    contain: layout style paint;
   }
 
 
@@ -2173,6 +2177,28 @@ function _unlockAudio() {
 
 // Custom cursor handled in premium enhancements block below
 
+// ── SCROLL PERFORMANCE GUARD ──────────────────────────────
+// Tracks fast-scroll state to pause expensive canvas work on Android/mobile.
+// A scroll is considered "fast" if two scroll events fire within 80 ms.
+let _scrolling = false;
+let _scrollTimer = null;
+let _lastScrollTime = 0;
+let _isFastScroll = false;
+
+window.addEventListener('scroll', function() {
+  const now_ = performance.now();
+  const gap  = now_ - _lastScrollTime;
+  _lastScrollTime = now_;
+  _isFastScroll = gap < 80;   // two events < 80 ms apart = fast fling
+
+  _scrolling = true;
+  clearTimeout(_scrollTimer);
+  _scrollTimer = setTimeout(function() {
+    _scrolling = false;
+    _isFastScroll = false;
+  }, 150);
+}, { passive: true });
+
 // ── CANVAS ──
 const MC = document.getElementById('magic-canvas');
 const cx = MC.getContext('2d');
@@ -2236,10 +2262,20 @@ function drawSpores(dt) {
 
 // ─── MAIN LOOP ────────────────────────────────
 let lastT = now();
+let _loopSkipCount = 0;
 function loop() {
   const t  = now();
   const dt = Math.min(t - lastT, 0.05);
   lastT = t;
+
+  // During fast scroll on mobile, skip canvas redraws to prevent
+  // the GPU compositing stall that causes the black-screen flash on Android.
+  if (_isFastScroll) {
+    _loopSkipCount++;
+    requestAnimationFrame(loop);
+    return;
+  }
+  _loopSkipCount = 0;
 
   cx.clearRect(0,0,W,H);
   drawOrbs(t);
@@ -2864,9 +2900,14 @@ function selectPackage(name) {
 (function() {
   const nav = document.querySelector('nav');
   if (!nav) return;
+  let _navRaf = null;
   function onScroll() {
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if (_navRaf) return;  // throttle to one rAF per scroll burst
+    _navRaf = requestAnimationFrame(function() {
+      _navRaf = null;
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
@@ -3163,13 +3204,19 @@ const parallaxMid  = document.querySelectorAll('.hero-parallax-mid');
 const parallaxFast = document.querySelectorAll('.hero-parallax-fast');
 const hasHover     = window.matchMedia('(hover: hover)').matches;
 
+let _parallaxRaf = null;
 function handleParallax() {
   if (!hasHover) return;  // no parallax on touch/iOS
-  const scrollY = window.scrollY;
-  if (scrollY > window.innerHeight) return;
-  parallaxSlow.forEach(el => el.style.transform = `translateY(${scrollY * 0.12}px)`);
-  parallaxMid.forEach( el => el.style.transform = `translateY(${scrollY * 0.22}px)`);
-  parallaxFast.forEach(el => el.style.transform = `translateY(${scrollY * 0.38}px)`);
+  if (_isFastScroll) return;  // skip during fast fling to avoid layout thrashing
+  if (_parallaxRaf) return;   // throttle to one rAF per scroll event
+  _parallaxRaf = requestAnimationFrame(function() {
+    _parallaxRaf = null;
+    const scrollY = window.scrollY;
+    if (scrollY > window.innerHeight) return;
+    parallaxSlow.forEach(el => el.style.transform = `translateY(${scrollY * 0.12}px)`);
+    parallaxMid.forEach( el => el.style.transform = `translateY(${scrollY * 0.22}px)`);
+    parallaxFast.forEach(el => el.style.transform = `translateY(${scrollY * 0.38}px)`);
+  });
 }
 
 window.addEventListener('scroll', handleParallax, { passive: true });
